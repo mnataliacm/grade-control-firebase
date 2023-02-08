@@ -1,0 +1,100 @@
+{
+  "home": {
+    "title":"Tasks Management",
+    "home": "Home",
+    "grades": "Grades",
+    "student": "Students",
+    "tasks": "Tasks",
+    "assign": "Assign dates",
+    "modules": "Modules",
+    "calendar": "Schedule",
+    "info": "About",
+    "language": "Change language: ",
+    "spa": "spain flag icon",
+    "eng": "united kingdom flag icon",
+    "login": "WELCOME"    
+  },
+  "detail": {
+    "titleS": "Studens data",
+    "titleT": "Task data",
+    "titleA": "Data assignment",
+    "name": "Name",
+    "surname": "Surname",
+    "image": "Image",
+    "email": "Email",
+    "grade": "Grade",
+    "level": "Level",
+    "module": "Module",
+    "type": "Task",
+    "info": "Information",
+    "warning": "Warning",
+    "date": "Date",
+    "select": "Selecct one"
+  },
+  "people": {
+    "name": "Enter the name ...",
+    "surname": "Enter the surname ...",
+    "nickname": "Enter the nickname ...",
+    "image": "Enter link to image ...",
+    "alert": "Are you sure you want to delete the studen?",
+    "txtWarning": "That person cannot be deleted"
+  },
+  "task": {
+    "name": "Enter task name ...",
+    "duration": "Enter task duration ...",
+    "task1": "Exam",
+    "task2": "Classwork",
+    "alert": "Are you sure you want to delete this task?",
+    "warning": "Unable to delete this task because it already has a due date"
+  },
+  "assign": {
+    "grade": "Select grade",
+    "level": "Select level",
+    "task": "Select task",
+    "date": "Select date and time",
+    "first": "First",
+    "second": "Second"
+  },
+  "button": {
+    "new": "Create",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "cancel": "Cancel",
+    "apply": "Apply"
+  },
+  "app": {
+    "line1": "Application to calculate report cards",
+    "line2": "* Introduce students",
+    "line3": "* Enter practices or exams"
+  },
+  "about": {
+    "line1": "Practice for 2 DAM - Modules: Data Access and HLC",
+    "line2": "Application developed by Natalia Castillo Muñoz",
+    "line3": "Project carried out with Ionic and Angular"
+  },
+  "footer": {
+    "grade": "2º Cross-Platform Application Development",
+    "author": "By Natalia Castillo"
+  },
+  "validators":{
+    "passwordMatch": "Passwords do not match",
+    "passwordProto": "At least 8 characters, one uppercase letter, one lowercase letter and one number",
+    "email": "You must introduce a valid email"
+  },
+  "login":{
+      "title":"Sign in",
+      "email":"Email",
+      "password":"Password",
+      "send":"Send"
+  },
+  "register":{
+      "title":"Register",
+      "register":"I want to register",
+      "name":"Complete Name",
+      "email":"Email",
+      "password":"Password",
+      "confirm_password":"Repeat password",
+      "send":"Send"
+  }
+}

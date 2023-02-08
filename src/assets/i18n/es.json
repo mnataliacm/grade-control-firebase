@@ -1,0 +1,103 @@
+{
+  "home": {
+    "title":"Controla las Tareas",
+    "home": "Inicio",
+    "grades": "Cursos",
+    "student": "Alumnos",
+    "tasks": "Tareas",
+    "assign": "Asignar fechas",
+    "modules": "Modulos",
+    "calendar": "Horario",
+    "info": "Acerca de",
+    "language": "Elige idioma: ",
+    "spa": "icono bandera españa",
+    "eng": "icono bandera reino unido",
+    "login": "BIENVENID@"
+  },
+  "detail": {
+    "titleS": "Datos de los alumnos",
+    "titleT": "Datos de la tarea",
+    "titleA": "Asignar fechas",
+    "name": "Nombre",
+    "surname": "Apellidos",
+    "image": "Imagen",
+    "email": "Email",
+    "grade": "Curso",
+    "level": "Nivel",
+    "module": "Modulo",
+    "type": "Tarea",
+    "info": "Información",
+    "warning": "Advertencia",
+    "date": "Fecha",
+    "select": "Seleccione uno"
+  },
+  "people": {
+    "name": "Introduce el nombre ...",
+    "surname": "Introduce los apellidos ...",
+    "image": "Introduce enlace a imagen ...",
+    "alert": "¿Estas seguro de que desea borrar este alumno?",
+    "warning": "No se puede borrar al alumno"
+  },
+  "task": {
+    "name": "Selecciona la tarea",
+    "infoTarea": "Introduce información de la tarea",
+    "task1": "Examen",
+    "task2": "Trabajo",
+    "alert": "¿Estas seguro de que desea borrar esta tarea?",
+    "warning": "No se puede borrar esta tarea porque ya tiene fecha de entrega"
+  },
+  "assign": {
+    "grade": "Seleccione curso",
+    "level": "Seleccione nivel",
+    "task": "Seleccione tarea ",
+    "date": "Seleccione fecha y hora",
+    "first": "Primero",
+    "second": "Segundo"
+  },
+  "button": {
+    "new": "Crear",
+    "edit": "Editar",
+    "delete": "Borrar",
+    "close": "Cerrar",
+    "cancel": "Cancelar",
+    "apply": "Aceptar"
+  },
+  "app": {
+    "line1": "Aplicación para calcular los boletines de notas.",
+    "line2": "* Introduce los alumnos.",
+    "line3": "* Introduce las prácticas o examenes."
+    
+  },
+  "about": {
+    "line1": "Práctica para 2 DAM - Modulos: Acceso a Datos y HLC",
+    "line2": "Aplicación desarrollada por Natalia Castillo Muñoz",
+    "line3": "Proyecto realizado usando Ionic, Angular, Cordoba, Fullcalendar, JsonServer, APIRest.",
+    "line4": "Utilizo las siguientes características: componentes, páginas, módulo compartido, pipes, modelos de datos, servicio de traducción español/ingles, directivas, decoradores, modales, alerts, formularios, iconos e imágenes.",
+    "line5": "Para las operaciones CRUD uso HttpClient con json-server y guardo los datos en API/data.json"
+  },
+  "footer": {
+    "grade": "2º Desarrollo de Aplicaciones Multiplataforma",
+    "author": "Por Natalia Castillo"
+  },
+  "validators":{
+    "passwordMatch": "Las contraseñas no coinciden",
+    "passwordProto": "Al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número",
+    "email": "Debe introducir un email válido"
+  },
+  "login":{
+      "title":"Iniciar sesión",
+      "email":"Email",
+      "password":"Contraseña",
+      "send":"Enviar"
+  },
+  "register":{
+      "title":"Registro",
+      "register":"quiero registrarme",
+      "name":"Nombre Completo",
+      "email":"Email",
+      "password":"Contraseña",
+      "confirm_password":"Repita contraseña",
+      "send":"Enviar"
+  }
+
+}

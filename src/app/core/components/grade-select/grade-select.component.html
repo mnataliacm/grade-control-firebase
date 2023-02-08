@@ -1,0 +1,28 @@
+<!-- 
+<ion-select placeholder="{{ 'assign.grade' | translate}}" formControlName="grade" *ngFor="let grade of (getGrades() | async)">
+  <ion-select-option value= {{ grade.id }}>{{ grade.acronym }}</ion-select-option>
+
+  </ion-select> -->
+
+
+<!-- <ion-accordion-group #accordion>
+  <ion-accordion value="first" *ngFor="let grade of (getGrades() | async)">
+    <ion-item slot="header" color="light" > 
+    <ng-container *ngIf="selectGrade"  >
+      <ion-label>{{grade.acronym}}</ion-label>
+    </ng-container>
+    <ng-container>
+      
+    </ng-container>
+    <ion-label *ngIf="!selectGrade">{{ 'assign.grade' | translate }}</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-list>
+        <ion-item button (click)="onGradeClicked(grade.id, accordion)">
+          <ion-label>{{ grade.acronym }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-accordion>
+</ion-accordion-group> -->
+

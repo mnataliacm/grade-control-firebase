@@ -24,3 +24,51 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+body {
+  --ion-background-color: #426ae2;
+  //--ion-text-color: white;
+  --ion-toolbar-background: 	#068a85;
+  --ion-toolbar-color: white;
+}
+
+ion-fab-button {
+  --background: #d4811a;
+  --color: white;
+}
+
+ion-fab-button::part(native) {
+  background-color: #d4811a;
+  border-radius: 15px;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15);
+  color: white;
+}
+    
+ion-fab-button::part(native):hover::after {
+  background-color: #d4811a;
+}
+
+ion-fab-button::part(native):active::after {
+  background-color: #d4811a;
+}
+
+ion-button {
+  color: white;
+  --background: #d4811a;
+}
+
+ion-item-option {
+  background-color: #d4811a;
+}
+a {
+  color: white;
+}
+
+ion-select-option {
+  color: black;
+}
+
+ion-content {
+  --ion-text-color: white;
+}

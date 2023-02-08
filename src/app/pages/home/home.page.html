@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> {{ 'home.home' | translate | uppercase }} </ion-title>
+    <!-- <ion-label slot="end"><h2>Bienvenido, {{user.getUser()?.name}}</h2></ion-label> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-item lines="none"></ion-item>
+<ion-item lines="none"></ion-item>
+<ion-content class="ion-padding" *ngIf="isLowResolution()">
+  <ion-img src="../../../assets/images/imagenHome.png" alt="app logo"></ion-img>
+</ion-content>
+
+<ion-content class="ion-padding" *ngIf="!isLowResolution()">
+  <ion-img src="../../../assets/images/imagenHome.png" alt="app logo" style="width: 50%; margin-left: 300px;"></ion-img>
+</ion-content>

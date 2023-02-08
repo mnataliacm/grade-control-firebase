@@ -1,0 +1,63 @@
+<form [formGroup]="form" (onSubmit)="onSubmit()">
+  <ion-item>
+    <ion-label>{{ 'detail.name' | translate }}</ion-label>
+    <ion-input formControlName="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ 'detail.surname' | translate }}</ion-label>
+    <ion-input formControlName="surname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ 'detail.email' | translate }}</ion-label>
+    <ion-input  formControlName="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ 'detail.image' | translate }}</ion-label>
+    <ion-input  formControlName="picture"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ 'detail.grade' | translate }}</ion-label>
+    <ion-input formControlName="grade"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{ 'detail.level' | translate }}</ion-label>
+    <ion-input formControlName="level"></ion-input>
+  </ion-item>
+  <ion-button [disabled]="!form.valid" (click)="onSubmit()" color="success" size="small">
+    {{ (form.controls['id'].value=="-1")? ('button.new' | translate):('button.edit' | translate) }}
+  </ion-button>
+  <ion-button (click)="onDismiss()" color="danger" size="small">
+    {{ 'button.cancel' | translate }}
+  </ion-button> 
+</form>
+
+
+
+
+<!-- <ion-item>
+  <ion-label>{{ 'detail.name' | translate }}</ion-label>
+  <ion-input [(ngModel)]="student.name"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>{{ 'detail.surname' | translate }}</ion-label>
+  <ion-input [(ngModel)]="student.surname"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>{{ 'detail.email' | translate }}</ion-label>
+  <ion-input [(ngModel)]="student.email"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>{{ 'detail.image' | translate }}</ion-label>
+  <ion-input [(ngModel)]="student.picture"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>{{ 'detail.grade' | translate }}</ion-label>
+  <ion-input [(ngModel)]="student.grade"></ion-input>
+</ion-item>
+<ion-button (click)="updateStudent()" color="success" size="small">
+  {{ 'button.edit' | translate }}
+</ion-button>
+<ion-button [routerLink]="'/students'" color="danger" size="small">
+  {{ 'button.cancel' | translate }}
+</ion-button>
+<ion-input></ion-input> -->

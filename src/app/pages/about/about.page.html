@@ -1,0 +1,171 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'home.info' | translate | uppercase }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="isLowResolution()" class="ion-padding" >
+  <ion-item class="ion-padding" lines="none">
+    <ion-img src="../../../assets/images/yo.jpg" alt="app logo" style="width: 30%; margin-right: 15%;"></ion-img>
+    <ion-label>
+      <h1>Natalia</h1>
+      <h1>Catillo</h1>
+      <h1>Muñoz</h1>
+    </ion-label>
+    
+  </ion-item>
+  <ion-list>
+    <ion-item>
+      <h5>ESTUDIOS</h5>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h6>CFGS Desarrollo de Aplicaciones Multiplataforma</h6>
+        <h6>(2021- ) CPIFP Málaga Tech Park (antiguo IES Campanillas)</h6>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h6>CFGM Sistemas Microinformáticos y Redes</h6>
+        <h6>(2019-2021) FPIES Campanillas (PTA Málaga)</h6>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h6>E.S.O. (Escuela de Adultos - E.S.A.)</h6>
+        <h6>(2018-2019) IES Valle del Azahar (Estación de Cártama, Málaga)</h6>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <h5>EXPERIENCIA</h5>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h6>Accenture Málaga</h6>
+        <h6> ene 2023 - mar 2023 (3 meses) </h6>
+        <h6>FP DUAL CFGS DAM</h6>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h6>Accenture Málaga</h6>
+        <h6>mar 2022 - jun 2022 (4 meses) </h6>
+        <h6>FP DUAL CFGS DAM</h6>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h6>Grupo Safamotor</h6>
+        <h6>abr 2021 - jun 2021 (3 meses)</h6>
+        <h6>FCT CFGM SMR</h6>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="isLowResolution()">
+  <ion-row>
+    <ion-col sizeXl="6" sizeXs="12">
+      <ion-label>
+        <h6>{{ 'footer.grade' | translate}} </h6>
+      </ion-label>
+    </ion-col>
+    <ion-col sizeXl="3" sizeXs="12">
+      <a href="https://github.com/mnataliacm">
+        <ion-icon name="logo-github"></ion-icon>
+      </a>
+      <a href="https://www.linkedin.com/in/natalia-castillo-muñoz-87714423">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a>
+    </ion-col>
+    <ion-col sizeXl="3" sizeXs="12">
+      <h6>C.P.I.F.P. - Málaga Tech Park</h6>
+    </ion-col>
+  </ion-row>
+</ion-footer>
+
+
+<ion-content *ngIf="!isLowResolution()" class="ion-padding">
+  <ion-item class="ion-padding" lines="none">
+    <ion-thumbnail>
+      <ion-img src="../../../assets/images/yo.jpg" alt="app logo"></ion-img>
+    </ion-thumbnail>
+    <ion-label>
+      <h1>Natalia Castillo Muñoz</h1>
+    </ion-label>
+  </ion-item>
+  <ion-list>
+    <ion-item>
+      <h3>ESTUDIOS</h3>
+    </ion-item>
+    <h5>CFGS Desarrollo de Aplicaciones Multiplataforma</h5>
+    <h6>(2021- ) CPIFP Tech Park Málaga</h6>
+    <ion-item></ion-item>
+    <h5>CFGM Sistemas Microinformáticos y Redes</h5>
+    <h6>(2019-2021) FPIES Campanillas (PTA Málaga)</h6>
+    <ion-item></ion-item>
+    <h5>E.S.O. (Escuela de Adultos - E.S.A.)</h5>
+    <h6>(2018-2019) IES Valle del Azahar (Estación de Cártama, Málaga)</h6>
+    <ion-item></ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <h3>EXPERIENCIA</h3>
+    </ion-item>
+    <h5>Accenture Málaga</h5>
+    <h6> ene 2023 - mar 2023 (3 meses) </h6>
+    <h6>FP DUAL CFGS DAM</h6>
+    <ion-item></ion-item>
+    <h6>Accenture Málaga</h6>
+    <h6>mar 2022 - jun 2022 (4 meses) </h6>
+    <h6>FP DUAL CFGS DAM</h6>
+    <ion-item></ion-item>
+    <h6>Grupo Safamotor</h6>
+    <h6>abr 2021 - jun 2021 (3 meses)</h6>
+    <h6>FCT CFGM SMR</h6>
+      <ion-item></ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="!isLowResolution()">
+  <ion-row>
+    <ion-col sizeXl="6" sizeXs="12">
+      <ion-title>{{ 'footer.grade' | translate}}</ion-title>
+    </ion-col>
+    <ion-col sizeXl="3" sizeXs="12">
+      <a href="https://github.com/mnataliacm">
+        <ion-icon name="logo-github"></ion-icon>
+      </a>
+      <a href="https://www.linkedin.com/in/natalia-castillo-muñoz-87714423">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a>
+    </ion-col>
+    <ion-col sizeXl="3" sizeXs="12">
+      C.P.I.F.P. - Tech Park Málaga
+    </ion-col>
+  </ion-row>
+</ion-footer>
+
+
+
+
+<!--
+<ion-content>
+<ion-content class="app ion-padding">
+  <h1>Grade Control</h1>
+  <h3>{{ 'app.line1' | translate }}</h3>
+  <p>{{ 'app.line2' | translate }}</p>
+  <p>{{ 'app.line3' | translate }}</p>
+  <br><br><br><br><br>
+  <h2>{{ 'about.line1' | translate }}</h2>
+  <h3>{{ 'about.line2' | translate }}</h3>
+  <p>{{ 'about.line3' | translate }}</p>
+  <p>{{ 'about.line4' | translate }}</p>
+  <p>{{ 'about.line5' | translate }}</p>
+</ion-content>
+</ion-content> -->

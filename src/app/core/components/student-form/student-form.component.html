@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'detail.titleS' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss(null)">{{ 'button.close' | translate }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <input id="fileLoader" type="file" #fileLoader name="files" title="Load Files" hidden>
+  <ion-img *ngIf="currentImage.value" [src]="currentImage$ | async"></ion-img>
+  <ion-img *ngIf="!currentImage.value" src="https://ionicframework.com/docs/img/demos/thumbnail.svg"></ion-img>
+  <ion-button *ngIf="(platform.isNative$ | async)" expand="full" id="picture-button">{{'change-picture.title' | translate}}</ion-button>
+  <ion-button *ngIf="!(platform.isNative$ | async)" expand="full" (click)="changePic(fileLoader, 'file')">{{'change-picture.title' | translate}}</ion-button>
+  <ion-popover *ngIf="platform.isNative$ | async" style="width:100%" trigger="picture-button" [dismissOnSelect]="true">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <h2>{{'change-picture.title' | translate}}</h2>
+        <ion-list>
+          <ion-item lines="inset" (click)="changePic(fileLoader, 'library')" [button]="true" [detail]="false">
+            <ion-icon slot="start" name="images-outline"></ion-icon>
+            <ion-label>{{'change-picture.library' | translate}}</ion-label>
+          </ion-item>
+          <ion-item lines="inset" (click)="changePic(fileLoader, 'camera')" [button]="true" [detail]="false">
+            <ion-icon slot="start" name="camera-outline"></ion-icon>
+            <ion-label>{{'change-picture.camera' | translate}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-popover>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating"> {{ 'detail.name' | translate }} </ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> {{ 'detail.surname' | translate }} </ion-label>
+      <ion-input formControlName="surname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> {{ 'detail.email' | translate }} </ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-list>
+        <ion-label>{{ 'detail.grade' | translate }}</ion-label>
+        <ion-item>          
+          <ion-select placeholder="{{ 'assign.grade' | translate}}" formControlName="grade">
+            <ion-select-option value="SMR">SMR</ion-select-option>
+            <ion-select-option value="DAM">DAM</ion-select-option>
+            <ion-select-option value="DAW">DAW</ion-select-option>
+            <ion-select-option value="ASIR">ASIR</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-list>
+        <ion-label>{{ 'detail.level' | translate }}</ion-label>
+        <ion-item >          
+          <ion-select placeholder="{{ 'assign.level' | translate}}" formControlName="level" >
+            <ion-select-option value="first" class="secondary" style="background-color: black;">{{ 'assign.first' | translate}}</ion-select-option>
+            <ion-select-option value="second">{{ 'assign.second' | translate}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-button [disabled]="!form.valid" (click)="onSubmit()">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
+    <ion-button routerLink="students" color="danger" size="small">
+      {{ 'button.cancel' | translate }}
+    </ion-button>
+  </form>
+</ion-content>

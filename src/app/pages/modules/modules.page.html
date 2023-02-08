@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'home.modules' | translate | uppercase }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
+    <ion-fab-button value="newGrade" (click)="onNewItem()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+      <app-module *ngFor="let module of (getModules() | async | orderBy:'name')" [module]="module" (onEdit)="onEditModule($event)" (onDelete)="onDeleteModule($event)"></app-module>
+
+    <ion-accordion-group *ngFor="let grade of (getGrades() | async)" >
+    <ion-label>{{ grade.name }}</ion-label>
+
+    <ion-accordion class="ion-padding" >
+      <ion-item slot="header" color="white" lines="none">
+        <ion-label>{{ grade.acronym }}</ion-label>
+      </ion-item>
+          <div class="ion-padding" slot="content" *ngFor="let module of (getModules() | async)">
+            <app-module [module]="module" (onEdit)="onEditModule($event)" (onDelete)="onDeleteModule($event)"></app-module>
+          </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>
+
+
+
+
+
+
+<!-- <ng-container *ngFor="let grade of (getGrades() | async)">
+  <ion-label *ngIf="grade.id <=8 && grade.id%2 != 0">{{ grade.name }}</ion-label>
+  <ion-label *ngIf="grade.id > 8">{{ grade.name }}</ion-label>
+    <ion-accordion-group  [multiple]="false" >       
+      <ion-accordion class="ion-padding" >
+        <ion-item slot="header" color="white" lines="none" >
+          <ion-label>{{ grade.acronym }}</ion-label>
+        </ion-item>
+        
+            <div class="ion-padding" slot="content" *ngFor="let module of (getModules() | async)" >               
+              <app-module *ngIf="module && module.gradeId == grade.id" [module]="module" (onEdit)="onEditModule($event)" (onDelete)="onDeleteModule($event)"></app-module>
+            </div>
+          
+      </ion-accordion> -->

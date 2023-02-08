@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'home.grades' | translate | uppercase }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
+    <ion-fab-button value="newGrade" (click)="onNewItem()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list *ngFor="let grade of (getGrades() | async | orderBy:'name')">
+    <app-grade  [grade]="grade" (onEdit)="onEditGrade($event)" (onDelete)="onDeleteGrade($event)"></app-grade>
+  </ion-list>
+
+</ion-content>
+
+<!-- 
+  | orderBy: ['name', 'acronym'] : ['asc', 'asc']  
+  | orderBy:'grade.acronym'
+-->
