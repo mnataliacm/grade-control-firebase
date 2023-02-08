@@ -1,0 +1,7 @@
+{
+  "name": "grade-control-firebase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
