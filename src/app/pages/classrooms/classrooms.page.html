@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'home.classroom' | translate | uppercase }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+<ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
+  <ion-fab-button value="newTasks" (click)="onNewItem()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-list>
+  <app-classroom *ngFor="let classroom of (getClassrooms() | async)" ></app-classroom>
+</ion-list>
+</ion-content>
+
+<!-- [classroom]="classroom" (onEdit)="onEditClassroom($event)" (onDelete)="onDeleteClassroom($event)" -->

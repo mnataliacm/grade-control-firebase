@@ -10,7 +10,7 @@ import en from '@angular/common/locales/en';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { Drivers } from '@ionic/storage';
 import { DateTimeSelectableComponent } from './components/date-time-selectable/date-time-selectable.component';
-import { AssignScheduleComponent, GradeComponent, GradeFormComponent, GradeSelectComponent, ModuleComponent, ModuleFormComponent, ProfileComponent, StudentComponent, StudentFormComponent, TaskComponent, TaskFormComponent } from './components';
+import { AssignScheduleComponent, ClassroomComponent, ClassroomFormComponent, GradeComponent, GradeFormComponent, GradeSelectComponent, ModuleComponent, ModuleFormComponent, ProfileComponent, StudentComponent, StudentFormComponent, TaskComponent, TaskFormComponent } from './components';
 import { OrderByPipe } from './pipes/orderByPipe';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import { File } from '@awesome-cordova-plugins/file/ngx';
@@ -33,7 +33,9 @@ registerLocaleData(es);
     ModuleFormComponent,
     TaskComponent,
     TaskFormComponent,
-    OrderByPipe
+    OrderByPipe,
+    ClassroomComponent,
+    ClassroomFormComponent
   ],
   imports: 
   [
@@ -75,7 +77,9 @@ registerLocaleData(es);
     ModuleFormComponent,
     TaskComponent,
     TaskFormComponent,
-    OrderByPipe
+    OrderByPipe,
+    ClassroomComponent,
+    ClassroomFormComponent
   ],
   providers: [
   {

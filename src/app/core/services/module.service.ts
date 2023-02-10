@@ -3,7 +3,6 @@ import { DocumentData } from 'firebase/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { ModuleModel } from '../models';
 import { FirebaseService } from './firebase/firebase-service';
-import { GradeService } from './grade.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +14,7 @@ export class ModuleService {
   
   unsubscr;
   constructor(
-    private firebase:FirebaseService,
-    private gradeSvc:GradeService) 
+    private firebase:FirebaseService) 
     { 
       this.unsubscr = this.firebase.subscribeToCollection('modules',this._moduleSubject, this.mapModule);
     }

@@ -9,5 +9,6 @@ export * from './module/module.component';
 export * from './module-form/module-form.component';
 export * from './task/task.component';
 export * from './task-form/task-form.component';
+export * from './classroom/classroom.component';
+export * from './classroom-form/classroom-form.component';
 
-//export * from '.';

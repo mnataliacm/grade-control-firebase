@@ -1,38 +1,37 @@
 import { Component } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { TaskFormComponent, TaskModel } from 'src/app/core';
-import { TaskService } from 'src/app/core/services/task.service';
+import { ClassroomFormComponent, ClassroomModel, ClassroomService, TaskModel } from 'src/app/core';
 import { isLowResolution as lowres } from 'src/app/utils/screen.utils';
 
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.page.html',
-  styleUrls: ['./tasks.page.scss'],
+  selector: 'app-classrooms',
+  templateUrl: './classrooms.page.html',
+  styleUrls: ['./classrooms.page.scss'],
 })
-export class TasksPage {
+export class ClassroomsPage {
 
-  _tasks: any;
+  _classroom: any;
   isLowResolution = lowres;
 
   constructor(
-    private taskSvc: TaskService,
+    private classroomkSvc: ClassroomService,
     private alert: AlertController,
     private modal: ModalController,
   ) {}
 
-  getTasks() {
-    return this.taskSvc.tasks$;
+  getClassrooms() {
+    return this.classroomkSvc.classroom$;
   }
 
-  onEditTask(task: any){
-    this.presentTaskForm(task);
+  onEditClassroom(classroom: any){
+    this.presentClassroomForm(classroom);
   }
 
-  async presentTaskForm(task:TaskModel){
+  async presentClassroomForm(classroom:TaskModel){
     const modal = await this.modal.create({
-      component:TaskFormComponent,
+      component:ClassroomFormComponent,
       componentProps:{
-        task:task
+        classroom:classroom
       },
       cssClass:"modal-full-right-side"
     });
@@ -41,10 +40,10 @@ export class TasksPage {
       if(result && result.data){
         switch(result.data.mode){
           case 'New':
-            this.taskSvc.createTask(result.data.task);
+            this.classroomkSvc.createClassroom(result.data.classroom);
             break;
           case 'Edit':
-            this.taskSvc.updateTask(result.data.task);
+            this.classroomkSvc.updateClassroom(result.data.classroom);
             break;
           default:
         }
@@ -52,10 +51,10 @@ export class TasksPage {
     });
   }
 
-  async onDeleteAlert(task:TaskModel){
+  async onDeleteAlert(classroom:ClassroomModel){
     const alert = await this.alert.create({
       header: 'Atención',
-      message: '¿Está seguro de que desear borrar la tarea?',
+      message: '¿Está seguro de que desear borrar la clase?',
       buttons: [
         {
           text: 'Cancelar',
@@ -68,7 +67,7 @@ export class TasksPage {
           text: 'Borrar',
           role: 'confirm',
           handler: () => {
-            this.taskSvc.deleteTask(task);
+            this.classroomkSvc.deleteClassroom(classroom);
           },
         },
       ],
@@ -77,11 +76,11 @@ export class TasksPage {
     const { role } = await alert.onDidDismiss();
   }
 
-  async onDeleteTask(task:TaskModel){
-    this.onDeleteAlert(task);
+  async onDeleteClassroom(classroom:ClassroomModel){
+    this.onDeleteAlert(classroom);
   }
 
-  async presentForm(_class: typeof TaskFormComponent, onDismiss:(arg0: any)=>void){
+  async presentForm(_class: typeof ClassroomFormComponent, onDismiss:(arg0: any)=>void){
     const modal = await this.modal.create({
       component:_class,
       cssClass:"modal-full-right-side"
@@ -95,9 +94,9 @@ export class TasksPage {
   }
 
   onNewItem(){
-    this.presentForm(TaskFormComponent, (data)=>{
-      this.taskSvc.createTask(data.task);
+    this.presentForm(ClassroomFormComponent, (data)=>{
+      this.classroomkSvc.createClassroom(data.classroom);
     });
   }
-  
+
 }

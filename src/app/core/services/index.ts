@@ -14,4 +14,5 @@ export * from './firebase/web/firebase-web.service';
 export * from './photo.service';
 export * from './platform.service';
 export * from './locale.service';
+export * from './classroom.service';
 
