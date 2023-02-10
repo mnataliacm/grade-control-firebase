@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { StudentFormComponent, StudentModel } from 'src/app/core';
+import { ProfileComponent, StudentFormComponent, StudentModel } from 'src/app/core';
 import { GradeService, StudentService } from 'src/app/core/services';
-import { HttpClientProvider } from 'src/app/core/services/http-client.provider';
 
 @Component({
   selector: 'app-students',
@@ -20,7 +19,6 @@ export class StudentsPage {
     private alert: AlertController,
     private modal: ModalController,
     private translate: TranslateService,
-    private api:HttpClientProvider,
     private gradeSvc: GradeService
   ) {
   }
@@ -36,7 +34,11 @@ export class StudentsPage {
   //   return this._students.filter(s=>s.grade == grade);
   // }
 
-  async presentStudentForm(student:StudentModel){
+  onEditStudent(student){
+    this.presentStudentForm(student);
+  }
+
+  async presentStudentForm(student){
     const modal = await this.modal.create({
       component:StudentFormComponent,
       componentProps:{
@@ -60,11 +62,7 @@ export class StudentsPage {
     });
   }
 
-  onEditStudent(student: StudentModel){
-    this.presentStudentForm(student);
-  }
-
-  async onDeleteStudent(student: StudentModel) {
+  async onDeleteStudent(student) {
     const alert = await this.alert.create({
       header:'Atención',
       message: '¿Está seguro de que desear borrar este estudiante?',
@@ -108,35 +106,22 @@ export class StudentsPage {
     });
   }
 
-  // toPerfil(student: StudentModel) {
-  //   this.presentProfileStudent(student);
-  // }
+  toProfileStudent(student) {
+    this.presentProfileStudent(student);
+  }
 
-  // async presentProfileStudent(student: StudentModel) {
-  //   const modal = await this.modal.create({
-  //     component: ProfileComponent,
-  //     componentProps: {
-  //       student: student
-  //     }
-  //   });
-
-  //   modal.present();
-  //   modal.onDidDismiss().then(result => {
-  //     if (result && result.data) {
-  //       switch (result.data.mode) {
-  //         case 'New':
-  //           this.studentSvc.createStudent(result.data.student);
-  //           break;
-  //         case 'Edit':
-  //           this.studentSvc.updateStudent(result.data.student.id, result.data.student);
-  //           break;
-  //         default:
-  //       }
-  //     }
-  //   });
-  // }
-
-  // getFilteredStudents(grade:string, student:StudentModel){
-  //   return  this.studentSvc.getStudentById(student.id);
-  // }
+  async presentProfileStudent(student) {
+    const modal = await this.modal.create({
+      component: ProfileComponent,
+      componentProps: {
+        student: student
+      },
+      cssClass:"modal-full-right-side"
+    });
+    modal.present();
+    // modal.onDidDismiss();
+    modal.onDidDismiss().then(result => {
+      this.studentSvc.updateStudent(result.data.student);
+    });
+  }
 }

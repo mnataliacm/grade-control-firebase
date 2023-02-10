@@ -1,6 +1,5 @@
 export interface TaskModel {
-  id: number;
-  docId: string;
+  docId?: string;
   name: string;
   type: string;
   info?: string;

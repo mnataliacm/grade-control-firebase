@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { DocumentData } from 'firebase/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { StudentModel } from '../models';
-import { ApiService } from './api.service';
 import { FirebaseService } from './firebase/firebase-service';
 
 @Injectable({
@@ -15,9 +14,9 @@ export class StudentService {
 
   unsubscr;
   constructor(
-    private api:ApiService,
-    private firebase:FirebaseService) {
-      this.unsubscr = this.firebase.subscribeToCollection('usuarios',this._studentsSubject, this.mapStudents);
+    private firebase:FirebaseService,   
+    ) {
+      this.unsubscr = this.firebase.subscribeToCollection('students',this._studentsSubject, this.mapStudents);
      }
 
   ngOnDestroy(): void {
@@ -26,12 +25,12 @@ export class StudentService {
 
   private mapStudents(doc:DocumentData){
     return {
-      id:0,
-      docId:doc['id'],
-      first_name:doc['data']().first_name,
-      last_name:doc['data']().last_name,
-      nickname:doc['data']().nickname,
-      picture:doc['data']().picture,
+      docId:doc.id,
+      name:doc.data().name,
+      surname:doc.data().surname,
+      email:doc.data().email,
+      picture:doc.data().picture,
+      grade:doc.data().grade
     };
   }
 
@@ -44,7 +43,6 @@ export class StudentService {
       try {
         var student = (await this.firebase.getDocument('students', id));
         resolve({
-          id:0,
           docId:student.id,
           name:student.data['name'],
           surname:student.data['surname'],
@@ -57,6 +55,7 @@ export class StudentService {
     });
   }
 
+  
   async deleteStudent(student:StudentModel){
     try {
       await this.firebase.deleteDocument('students', student.docId);  

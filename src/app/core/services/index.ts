@@ -11,3 +11,7 @@ export * from './user.service';
 export * from './api.service';
 export * from './firebase/firebase-service';
 export * from './firebase/web/firebase-web.service';
+export * from './photo.service';
+export * from './platform.service';
+export * from './locale.service';
+

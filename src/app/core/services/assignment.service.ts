@@ -52,7 +52,7 @@ export class AssignmentService {
   // }
 
   updateAssign(assign: AssignModel) {
-    var _assign = this._assigns.find(p => p.id == assign.id)
+    var _assign = this._assigns.find(p => p.docId == assign.docId)
     if (_assign) {
       _assign.taskId = assign.taskId;
       _assign.dateTime = assign.dateTime;

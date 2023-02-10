@@ -14,6 +14,7 @@ import { HttpClientWebProvider } from './core/services/http-client-web.provider'
 import { HttpClientProvider } from './core/services/http-client.provider';
 import { CoreModule } from './core/core.module';
 import { FirebaseService } from './core/services/firebase/firebase-service';
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 
 export function firebaseServiceFactory() {
   return  new FirebaseWebService();
@@ -55,6 +56,7 @@ export function httpProviderFactory(
       deps: [],
       useFactory: firebaseServiceFactory
     },
+    Camera
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

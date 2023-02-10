@@ -1,9 +1,8 @@
 export interface StudentModel {
-  id: number;
-  docId:string;
+  docId?:string;
   name: string;
   surname: string;
-  email?: string;
+  email: string;
   picture?: string;  
   pictureFile?:null;
   grade?: string;  

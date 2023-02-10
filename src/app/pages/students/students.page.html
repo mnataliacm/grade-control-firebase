@@ -16,8 +16,8 @@
   </ion-fab>
 
 <ion-list>
-  <app-student *ngFor="let student of (getStudents() | async)" [student]="student" 
-  (onEdit)="onEditStudent($event)" (onDelete)="onDeleteStudent($event)"></app-student>
+  <app-student *ngFor="let student of (getStudents() | async | orderBy:'name')" [student]="student" 
+  (onEdit)="onEditStudent($event)" (onDelete)="onDeleteStudent($event)" (toProfile)="toProfileStudent($event)"></app-student>
 </ion-list>
 
 <!-- <ion-grid [fixed]="true">

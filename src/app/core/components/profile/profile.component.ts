@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
 import { StudentModel } from '../../models';
-import { GradeService, StudentService } from '../../services';
-
+import { PhotoItem, PhotoService } from '../../services/photo.service';
+import { PlatformService } from '../../services/platform.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -12,82 +12,53 @@ import { GradeService, StudentService } from '../../services';
 })
 export class ProfileComponent {
 
-  id: string = "";
-  //task: any;
- //student: any;
-  //grades: GradeModel;
-
-
+  form:FormGroup;
+  mode:"New" | "Edit" = "New";
+  currentImage = new BehaviorSubject<string>("");
+  currentImage$ = this.currentImage.asObservable();
   @Input('student') set student(student:StudentModel){
     if(student){
-      this.form.controls['name'].setValue(student.name);
-      this.form.controls['surname'].setValue(student.surname);
-      this.form.controls['email'].setValue(student.email);
-      this.form.controls['picture'].setValue(student.picture);
-      this.form.controls['grade'].setValue(student.grade);
+      this.form.controls.docId.setValue(student.docId);
+      this.form.controls.name.setValue(student.name);
+      this.form.controls.surname.setValue(student.surname);
+      this.form.controls.email.setValue(student.email);      
+      this.form.controls.picture.setValue(student.picture);
+      if(student.picture)
+        this.currentImage.next(student.picture);
+      this.form.controls.pictureFile.setValue(null);
+      this.mode = "Edit";
     }
   }
-
-  form: FormGroup;
-
+  
   constructor(
-    private formBuilder: FormBuilder,
-    private modal: ModalController,
-    private route: ActivatedRoute,
-    private router: Router,
-    private gradeSvc: GradeService,
-    private studentSvc: StudentService
+    public platform:PlatformService,
+    private photoSvc:PhotoService,
+    private fb:FormBuilder,
+    private modal:ModalController,
+    private cdr:ChangeDetectorRef
   ) { 
-    //this.task = new TaskModel();
-    //this.grades = new GradeModel();
-    //this.student = StudentModel;
-    this.form = this.formBuilder.group({
-      id:[""],
-      name:["", Validators.required],
-      surname:["", Validators.required],
-      email:["", [Validators.required, Validators.email]],
-      picture:[""],
-      grade:["", Validators.required]
+    this.form = this.fb.group({
+      docId:[''],
+      name:['', [Validators.required]],
+      surname:['', [Validators.required]],
+      email:['', [Validators.required, Validators.email]],
+      picture:[''],
+      pictureFile:[null]
     });
-
   }
 
-  ngOnInit() {
-    // this.id = this.route.snapshot.params['id'];
-    // this.studentSvc.getStudent(Number(this.id)).subscribe(response => {
-    //   console.log(response);
-    //   this.form.controls['name'].setValue(response.name);
-    //   this.form.controls['surname'].setValue(response.surname);
-    //   this.form.controls['email'].setValue(response.email);
-    //   this.form.controls['picture'].setValue(response.picture);
-    //   this.form.controls['grade'].setValue(response.grade);
-    // });
+  onSubmit(){   
+    this.modal.dismiss({student: this.form.value, mode:this.mode}, 'ok');
   }
 
-  update() {
-    // var student = this.form.value;
-    // this.studentSvc.updateStudent(student.id, student).subscribe(
-    //   {next:(data) => {
-    //     this.router.navigate(['students']);
-    //   }      
-    // })
-  }
-
-  onSubmit(){
-    // var student = this.form.value;
-    // if(student.id!="-1")
-    //   this.studentSvc.updateStudent(student.id, student);
-    // else
-    //   this.studentSvc.createStudent(student).subscribe(
-    //     {next:(data)=>{
-    //       this.router.navigate(['students']);
-    //     },error:err=>{
-    //       console.log(err);
-    //     }}
-    //   );
-  }
-
-  onDismiss(){
+  onDismiss(result){
     this.modal.dismiss(null, 'cancel');
+  }
+  
+  async changePic(fileLoader:HTMLInputElement, mode:'library' | 'camera' | 'file'){
+    var item:PhotoItem = await this.photoSvc.getPicture(mode, fileLoader);
+    this.currentImage.next(item.base64);
+    this.cdr.detectChanges();
+    this.form.controls.pictureFile.setValue(item.blob);
   }
 }

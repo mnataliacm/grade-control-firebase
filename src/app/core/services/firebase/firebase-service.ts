@@ -5,7 +5,7 @@ import { Auth, UserCredential, Unsubscribe, User } from "firebase/auth";
 
 export interface FirebaseDocument{
   id:string;
-  data:DocumentData | any;
+  data:DocumentData;
 }
 
 export interface FirestoreImages{

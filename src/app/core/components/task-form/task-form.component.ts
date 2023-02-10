@@ -14,7 +14,7 @@ export class TaskFormComponent {
   mode:"New" | "Edit" = "New";
   @Input('task') set task(task:TaskModel){
     if(task){
-      this.form.controls['id'].setValue(task.id);
+      this.form.controls['id'].setValue(task.docId);
       this.form.controls['name'].setValue(task.name);
       this.form.controls['type'].setValue(task.type);
       this.form.controls['info'].setValue(task.info);
@@ -31,7 +31,7 @@ export class TaskFormComponent {
     private modal:ModalController,
   ) { 
     this.form = this.fb.group({
-      id:[null],
+      docId:[''],
       name:['', [Validators.required]],
       type:[''],
       info:[''],

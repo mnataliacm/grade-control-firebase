@@ -26,7 +26,6 @@ export class TaskService {
 
   private mapTask(doc:DocumentData){
     return {
-      id:0,
       docId:doc['id'],
       name:doc['data']().name,
       type:doc['data']().type,
@@ -45,7 +44,6 @@ export class TaskService {
       try {
         var task = (await this.firebase.getDocument('tasks', id));
           resolve({
-            id: 0,
             docId: task['id'],
             name: task['name'],
             type: task['type'],

@@ -19,15 +19,14 @@ export class StudentFormComponent {
   currentImage$ = this.currentImage.asObservable();
   @Input('student') set student(student:StudentModel){
     if(student){
-      this.form.controls['id'].setValue(student.id);
-      this.form.controls['docId'].setValue(student.docId);
-      this.form.controls['name'].setValue(student.name);
-      this.form.controls['surname'].setValue(student.surname);
-      this.form.controls['email'].setValue(student.email);      
-      this.form.controls['picture'].setValue(student.picture);
+      this.form.controls.docId.setValue(student.docId);
+      this.form.controls.name.setValue(student.name);
+      this.form.controls.surname.setValue(student.surname);
+      this.form.controls.email.setValue(student.email);      
+      this.form.controls.picture.setValue(student.picture);
       if(student.picture)
         this.currentImage.next(student.picture);
-      this.form.controls['pictureFile'].setValue(null);
+      this.form.controls.pictureFile.setValue(null);
       this.mode = "Edit";
     }
   }
@@ -40,7 +39,6 @@ export class StudentFormComponent {
     private cdr:ChangeDetectorRef
   ) { 
     this.form = this.fb.group({
-      id:[null],
       docId:[''],
       name:['', [Validators.required]],
       surname:['', [Validators.required]],
@@ -54,7 +52,7 @@ export class StudentFormComponent {
     this.modal.dismiss({student: this.form.value, mode:this.mode}, 'ok');
   }
 
-  onDismiss(result: any){
+  onDismiss(result){
     this.modal.dismiss(null, 'cancel');
   }
   
@@ -62,7 +60,7 @@ export class StudentFormComponent {
     var item:PhotoItem = await this.photoSvc.getPicture(mode, fileLoader);
     this.currentImage.next(item.base64);
     this.cdr.detectChanges();
-    this.form.controls['pictureFile'].setValue(item.blob);
+    this.form.controls.pictureFile.setValue(item.blob);
   }
 
 }

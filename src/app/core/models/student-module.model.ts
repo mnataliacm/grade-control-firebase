@@ -1,5 +1,5 @@
 export interface StudentModuleModel {
-  id?: number;
+  docId?: number;
   grade: string;
   level: string;
   studentId: string;

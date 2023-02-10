@@ -3,6 +3,7 @@ import { isLowResolution as lowres} from 'src/app/utils/screen.utils';
 import { IonItemSliding } from '@ionic/angular';
 import { ModuleModel } from '../../models';
 import { ModuleService } from '../../services/module.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-module',
@@ -17,6 +18,7 @@ export class ModuleComponent {
   isLowResolution = lowres;
   constructor(
     private moduleSvc:ModuleService,
+    private translate:TranslateService
   ) { }
 
   onEditClick(slide:IonItemSliding){

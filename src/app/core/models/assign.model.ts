@@ -1,5 +1,5 @@
 export interface AssignModel {
-  id?: number;
+  docId?: string;
   taskId: string;
   gradeId: string;
   dateTime?: string;

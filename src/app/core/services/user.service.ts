@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { UserCredential } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
 import { User, UserLogin, UserRegister } from '../models';
-import { ApiService } from './api.service';
 import { FirebaseService } from './firebase/firebase-service';
 
 @Injectable({
@@ -17,7 +16,6 @@ export class UserService {
   public user$ = this._user.asObservable();
   // private user:User | any;
   constructor(
-    private api:ApiService,
     private firebase:FirebaseService,
     private router:Router
   ) {
