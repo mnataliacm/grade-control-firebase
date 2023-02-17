@@ -44,8 +44,4 @@ export class ClassroomFormComponent {
     this.modal.dismiss(null, 'cancel');
   }
 
-  onChange(e: any) {
-    this.level = e;
-  }
-
 }

@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IonItemSliding } from '@ionic/angular';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { GradeModel, StudentModel, GradeService } from '../..';
 import { isLowResolution as lowres } from 'src/app/utils/screen.utils';
 
@@ -25,18 +24,25 @@ export class StudentComponent {
     return this.gradeSvc.grades$;
   }
 
-  // getFilteredStudents(grade){
-  //   return this.student.filter((s:any)=>s.grade == grade);
-  // }
-
-  onEditClick(slide: IonItemSliding) {
-    slide.close();
+  onEditClick() {
     this.onEdit.emit(this.student);
   }
 
-  onDeleteClick(slide: IonItemSliding) {
-    slide.close();
+  onDeleteClick() {
     this.onDelete.emit(this.student);
+  }
+
+  @ViewChild('popover') popover;
+
+  isOpen = false;
+
+  presentPopover(e: Event) {
+    this.popover.Event = e
+    this.isOpen = true;
+  }
+
+  onDismiss(result) {
+    this.popover.dismiss(null, 'cancel');
   }
 
   toProfile() {

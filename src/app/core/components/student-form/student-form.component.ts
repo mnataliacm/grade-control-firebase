@@ -13,54 +13,57 @@ import { PlatformService } from '../../services/platform.service';
 })
 export class StudentFormComponent {
 
-  grade:any;
-  form:FormGroup;
-  mode:"New" | "Edit" = "New";
+  grade: any;
+  level: string;
+  form: FormGroup;
+  mode: "New" | "Edit" = "New";
   currentImage = new BehaviorSubject<string>("");
   currentImage$ = this.currentImage.asObservable();
-  @Input('student') set student(student:StudentModel){
-    if(student){
+  @Input('student') set student(student: StudentModel) {
+    if (student) {
       this.form.controls.docId.setValue(student.docId);
       this.form.controls.name.setValue(student.name);
       this.form.controls.surname.setValue(student.surname);
       this.form.controls.email.setValue(student.email);
-      this.form.controls.grade.setValue(student.grade);   
+      this.form.controls.level.setValue(student.level);
+      this.form.controls.grade.setValue(student.grade);
       this.form.controls.picture.setValue(student.picture);
-      if(student.picture)
+      if (student.picture)
         this.currentImage.next(student.picture);
       this.form.controls.pictureFile.setValue(null);
       this.mode = "Edit";
     }
   }
-  
+
   constructor(
-    public platform:PlatformService,
-    private photoSvc:PhotoService,
-    private fb:FormBuilder,
-    private modal:ModalController,
-    private cdr:ChangeDetectorRef
-  ) { 
+    public platform: PlatformService,
+    private photoSvc: PhotoService,
+    private fb: FormBuilder,
+    private modal: ModalController,
+    private cdr: ChangeDetectorRef
+  ) {
     this.form = this.fb.group({
-      docId:[''],
-      name:['', [Validators.required]],
-      surname:['', [Validators.required]],
-      email:['', [Validators.required, Validators.email]],
-      grade:[''],
-      picture:[''],
-      pictureFile:[null]
+      docId: [''],
+      name: ['', [Validators.required]],
+      surname: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      level: [''],
+      grade: [''],
+      picture: [''],
+      pictureFile: [null]
     });
   }
 
-  onSubmit(){   
-    this.modal.dismiss({student: this.form.value, mode:this.mode}, 'ok');
+  onSubmit() {
+    this.modal.dismiss({ student: this.form.value, mode: this.mode }, 'ok');
   }
 
-  onDismiss(result){
+  onDismiss(result) {
     this.modal.dismiss(null, 'cancel');
   }
-  
-  async changePic(fileLoader:HTMLInputElement, mode:'library' | 'camera' | 'file'){
-    var item:PhotoItem = await this.photoSvc.getPicture(mode, fileLoader);
+
+  async changePic(fileLoader: HTMLInputElement, mode: 'library' | 'camera' | 'file') {
+    var item: PhotoItem = await this.photoSvc.getPicture(mode, fileLoader);
     this.currentImage.next(item.base64);
     this.cdr.detectChanges();
     this.form.controls.pictureFile.setValue(item.blob);

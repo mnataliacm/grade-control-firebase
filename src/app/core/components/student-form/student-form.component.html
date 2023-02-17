@@ -47,29 +47,36 @@
       <ion-input formControlName="email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label > {{ 'detail.grade' | translate }} </ion-label>
+      <ion-label>Level</ion-label>
       <ion-list>
         <ion-item>
-          <ion-select placeholder="{{ 'assign.grade' | translate}}" formControlName="grade">
-            <ion-select-option value="1º SMR">1º SMR</ion-select-option>
-            <ion-select-option value="2º SMR">2º SMR</ion-select-option>
-            <ion-select-option value="1º DAM">1º DAM</ion-select-option>
-            <ion-select-option value="2º DAM">2º DAM</ion-select-option>
-            <ion-select-option value="1º DAW">1º DAW</ion-select-option>
-            <ion-select-option value="2º DAW">2º DAW</ion-select-option>
-            <!-- <ion-select-option value="1º ASIR">1º ASIR</ion-select-option>
-            <ion-select-option value="2º ASIR">2º ASIR</ion-select-option> 
-            <ion-select-option value="9">CIBER</ion-select-option>
-            <ion-select-option value="10">DVRV</ion-select-option>
-            <ion-select-option value="11">IABD</ion-select-option> -->
+          <ion-select interface="popover" placeholder="Selecciona nivel" formControlName="level">
+            <ion-select-option value="1º">1º</ion-select-option>
+            <ion-select-option value="2º">2º</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-list>
-      
+    </ion-item>
+    <ion-item>
+      <ion-label> {{ 'detail.grade' | translate }} </ion-label>
+      <ion-list>
+        <ion-item>
+          <ion-select placeholder="{{ 'assign.grade' | translate}}" formControlName="grade">
+            <ion-select-option value="SMR">SMR</ion-select-option>
+            <ion-select-option value="DAM">DAM</ion-select-option>
+            <ion-select-option value="DAW">DAW</ion-select-option>
+            <!-- <ion-select-option value="ASIR">ASIR</ion-select-option>
+            <ion-select-option value="CIBER">CIBER</ion-select-option>
+            <ion-select-option value="DVRV">DVRV</ion-select-option>
+            <ion-select-option value="IADB">IABD</ion-select-option> -->
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
     </ion-item>
     <ion-button [disabled]="!form.valid" (click)="onSubmit()">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
-      <ion-button color="danger" (click)="onDismiss(null)">
-        {{ 'button.cancel' | translate }}
-      </ion-button>
+    <ion-button color="danger" (click)="onDismiss(null)">
+      {{ 'button.cancel' | translate }}
+    </ion-button>
   </form>
 </ion-content>

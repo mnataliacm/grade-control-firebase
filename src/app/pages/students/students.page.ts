@@ -121,7 +121,7 @@ export class StudentsPage {
     modal.present();
     // modal.onDidDismiss();
     modal.onDidDismiss().then(result => {
-      this.studentSvc.updateStudent(result.data.student);
+      this.studentSvc.getStudentById(result.data.student);
     });
   }
 }

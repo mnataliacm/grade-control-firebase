@@ -15,12 +15,19 @@
     </ion-fab-button>
   </ion-fab>
 
-<ion-list>
-  <app-student *ngFor="let student of (getStudents() | async | orderBy:'name')" [student]="student" 
-  (onEdit)="onEditStudent($event)" (onDelete)="onDeleteStudent($event)" (toProfile)="toProfileStudent($event)"></app-student>
-</ion-list>
+  <ion-list></ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeXs="8" sizeXl="3" *ngFor="let student of (getStudents() | async | orderBy:'name')">
+        <app-student  [student]="student"
+          (onEdit)="onEditStudent($event)" (onDelete)="onDeleteStudent($event)"
+          (toProfile)="toProfileStudent($event)">
+        </app-student>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-<!-- <ion-grid [fixed]="true">
+  <!-- <ion-grid [fixed]="true">
   <ion-row *ngFor="let grade of (getGrades() | async)">
     <ion-item-divider>1º {{ grade.acronym}}</ion-item-divider>
     <ion-col sizeXs="10" sizeXl="3" *ngFor="let student of getFilteredByGrade(grade.acronym)" >

@@ -1,85 +1,32 @@
-<ion-item-sliding #sliding [disabled]="!isLowResolution()">
-  <ion-item>
-    <ion-avatar class="student">
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button color="light" size="small">
+    <ion-icon name="ellipsis-vertical"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list>
+    <ion-fab-button fill="clear" (click)="toProfile()">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button fill="clear" (click)="onEditClick()">
+      <ion-icon name="pencil-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button fill="clear" (click)="onDeleteClick()">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+  <ion-title></ion-title>
+</ion-fab>
+
+<ion-card class="ion-padding" color="white">
+  <ion-card-header>
+    <ion-avatar>
       <ion-img *ngIf="!student.picture" alt="Silhouette of a person's head"
         src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-img>
-      <ion-img *ngIf="student.picture" alt="Student picture" [src]="student.picture"> </ion-img>
+      <ion-img *ngIf="student.picture" alt="Person picture" [src]="student.picture"></ion-img>
     </ion-avatar>
-    <ion-label class="ion-padding">{{student.surname}}, {{student.name}}</ion-label>
-    <ion-button class="item-expanded" *ngIf="!isLowResolution()" slot="end" fill="clear" (click)="toProfile()">
-      <div class="vertical">
-        <ion-icon name="person-outline" color="primary"></ion-icon>
-        {{'Perfil' | uppercase}}
-      </div>
-    </ion-button>
-    <ion-button class="item-expanded" *ngIf="!isLowResolution()" slot="end" fill="clear" (click)="onEditClick(sliding)">
-      <div class="vertical">
-        <ion-icon name="create-outline" color="success"></ion-icon>
-        {{'Editar' | uppercase}}
-      </div>
-    </ion-button>
-    <ion-button class="item-expanded" *ngIf="!isLowResolution()" slot="end" fill="clear"
-      (click)="onDeleteClick(sliding)">
-      <div class="vertical">
-        <ion-icon name="trash-outline" color="danger"></ion-icon>
-        {{'Borrar' | uppercase}}
-      </div>
-    </ion-button>
-  </ion-item>
-
-  <ion-item-options side="start">
-    <ion-item-option (click)="toProfile()">
-      <ion-icon slot="top" name="person-outline" color="primary"></ion-icon>
-      {{'Perfilñ' | uppercase}}
-    </ion-item-option>
-  </ion-item-options>
-  <ion-item-options>
-    <ion-item-option (click)="onEditClick(sliding)">
-      <ion-icon slot="top" name="create-outline" color="success"></ion-icon>
-      {{'Editar' | uppercase}}
-    </ion-item-option>
-    <ion-item-option (click)="onDeleteClick(sliding)" color="danger">
-      <ion-icon slot="top" name="trash-outline" color="danger"></ion-icon>
-      {{'Borrar' | uppercase}}
-    </ion-item-option>
-  </ion-item-options>
-</ion-item-sliding>
-
-<!-- *ngFor="let student of getFilteredStudents(grade.acronym)" -->
-
-
-
-<!-- <ion-content>
-          <ion-fab vertical="top" horizontal="end" slot="fixed">
-            <ion-fab-button color="light" size="small">
-              <ion-icon name="ellipsis-vertical"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-list> -->
-<!-- <ion-fab-button fill="clear" (click)="toPerfil(student)">
-                <ion-icon name="person-circle-outline"></ion-icon>
-              </ion-fab-button> -->
-<!-- <ion-fab-button fill="clear" onEditClick()>
-                <ion-icon name="pencil-outline"></ion-icon>
-              </ion-fab-button>
-              <ion-fab-button fill="clear" onDeleteClick()>
-                <ion-icon name="trash-outline"></ion-icon>
-              </ion-fab-button>
-            </ion-fab-list>
-          </ion-fab>
-        </ion-content>
-        <ion-card-header>
-          <ion-avatar>
-            <ion-img *ngIf="!student.picture" alt="Silhouette of a person's head"
-              src="https://ionicframework.com/docs/img/demos/avatar.svg"></ion-img>
-            <ion-img *ngIf="student.picture" alt="Person picture" [src]="student.picture"></ion-img>
-          </ion-avatar>
-          <ion-card-subtitle><h5>{{ student.surname }}, {{ student.name }}</h5></ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-card-subtitle *ngIf="student.level == 'first'">
-              <h2>1º {{ student.grade }}</h2>
-           </ion-card-subtitle>
-           <ion-card-subtitle *ngIf="student.level == 'second'">
-              <h2>2º {{ student.grade }}</h2>
-        </ion-card-subtitle>
-        </ion-card-content> -->
+    <ion-card-title>{{ student.level }} {{ student.grade }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-card-title>{{ student.surname }}, {{ student.name }}</ion-card-title>
+    <ion-card-subtitle>{{ student.email }}</ion-card-subtitle>
+  </ion-card-content>
+</ion-card>

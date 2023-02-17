@@ -24,7 +24,7 @@
       <ion-input type="text" placeholder="Nivel del curso" formControlName="level"></ion-input>
       <ion-list>
         <ion-item *ngIf="!level">
-          <ion-select interface="popover" (ionChange)="onChange($event)" placeholder="Selecciona nivel"
+          <ion-select interface="popover" placeholder="Selecciona nivel"
             formControlName="level">
             <ion-select-option value="1º">1º</ion-select-option>
             <ion-select-option value="2º">2º</ion-select-option>
