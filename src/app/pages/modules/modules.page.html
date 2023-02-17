@@ -12,7 +12,6 @@
     <ion-fab-button value="newGrade" (click)="onNewItem()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
-
-      <app-module *ngFor="let module of (getModules() | async | orderBy:'name')" [module]="module" (onEdit)="onEditModule($event)" (onDelete)="onDeleteModule($event)"></app-module>
+  </ion-fab>  
+    <app-module *ngFor="let module of (getModules() | async | orderBy:'name')" [module]="module" (onEdit)="onEditModule($event)" (onDelete)="onDeleteModule($event)"></app-module>
 </ion-content>

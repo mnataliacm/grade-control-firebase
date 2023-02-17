@@ -9,29 +9,29 @@ import { FirebaseService } from './firebase/firebase-service';
 })
 export class ClassroomService {
 
-  private _classroomSubject:BehaviorSubject<ClassroomModel[]> = new BehaviorSubject<ClassroomModel[]>([]);
-  public classroom$ = this._classroomSubject.asObservable();
+  private _classroomSubject:BehaviorSubject<ClassroomModel[]> = new BehaviorSubject([]);
+  public _classroom$ = this._classroomSubject.asObservable();
   
   unsubscr;
   constructor(
-    private firebase:FirebaseService,
-    private classroomSvc:ClassroomService) 
+    private firebase:FirebaseService
+    ) 
     { 
-      this.unsubscr = this.firebase.subscribeToCollection('modules',this._classroomSubject, this.mapModule);
+      this.unsubscr = this.firebase.subscribeToCollection('classrooms',this._classroomSubject, this.mapGrade);
     }
 
   ngOnDestroy(): void {
     this.unsubscr();
   }
 
-  private mapModule(doc:DocumentData){
+  private mapGrade(doc:DocumentData){
     return {
       docId:doc.id,
       level:doc.data().level,
       grade:doc.data().grade,
-      modules:doc.data().modules,
-      students:doc.data().students,
-      tasks:doc.data().tasks
+      // modules:doc.data().modules,
+      // students:doc.data().students,
+      // tasks:doc.data().tasks
     };
   }
 
@@ -47,9 +47,9 @@ export class ClassroomService {
           docId: classroom.id,
           level: classroom.data.level,
           grade: classroom.data.grade,
-          modules: classroom.data.modules,
-          students: classroom.data.students,
-          tasks: classroom.data.tasks
+          // modules: classroom.data.modules,
+          // students: classroom.data.students,
+          // tasks: classroom.data.tasks
         });
       } catch (error) {
         reject(error);
@@ -57,7 +57,7 @@ export class ClassroomService {
     });
   }
 
- async createClassroom(classroom:ClassroomModel){
+ async createClassroom(classroom: ClassroomModel){
   try {
     await this.firebase.createDocument('classrooms', classroom);  
   } catch (error) {
@@ -68,20 +68,24 @@ export class ClassroomService {
   async updateClassroom(classroom: ClassroomModel){
     var _classroom = {
       docId: classroom.docId,
-          level: classroom.level,
-          grade: classroom.grade,
-          modules: classroom.modules,
-          students: classroom.students,
-          tasks: classroom.tasks
+      level: classroom.level,
+      grade: classroom.grade,
+      // modules: classroom.modules,
+      // students: classroom.students,
+      // tasks: classroom.tasks
     };
     try {
-      await this.firebase.updateDocument('modules', _classroom.docId, _classroom);  
+      await this.firebase.updateDocument('classrooms', _classroom.docId, _classroom);  
     } catch (error) {
       console.log(error);
     }
   }
 
-  async deleteClassroom(classroom:ClassroomModel){
-    await this.firebase.deleteDocument('modules', classroom.docId);
+  async deleteClassroom(classroom: ClassroomModel){
+    try {
+      await this.firebase.deleteDocument('classrooms', classroom.docId);
+    } catch (error) {
+      console.log(error);
+    }  
   }
 }

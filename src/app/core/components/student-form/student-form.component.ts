@@ -13,6 +13,7 @@ import { PlatformService } from '../../services/platform.service';
 })
 export class StudentFormComponent {
 
+  grade:any;
   form:FormGroup;
   mode:"New" | "Edit" = "New";
   currentImage = new BehaviorSubject<string>("");
@@ -22,7 +23,8 @@ export class StudentFormComponent {
       this.form.controls.docId.setValue(student.docId);
       this.form.controls.name.setValue(student.name);
       this.form.controls.surname.setValue(student.surname);
-      this.form.controls.email.setValue(student.email);      
+      this.form.controls.email.setValue(student.email);
+      this.form.controls.grade.setValue(student.grade);   
       this.form.controls.picture.setValue(student.picture);
       if(student.picture)
         this.currentImage.next(student.picture);
@@ -43,6 +45,7 @@ export class StudentFormComponent {
       name:['', [Validators.required]],
       surname:['', [Validators.required]],
       email:['', [Validators.required, Validators.email]],
+      grade:[''],
       picture:[''],
       pictureFile:[null]
     });

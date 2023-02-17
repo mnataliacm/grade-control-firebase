@@ -1,8 +1,8 @@
 import { Component} from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { TranslateService } from '@ngx-translate/core';
-import { GradeService, HttpClientProvider, ModuleFormComponent, ModuleModel } from 'src/app/core';
+import { ModuleFormComponent, ModuleModel } from 'src/app/core';
 import { ModuleService } from 'src/app/core/services/module.service';
+import { isLowResolution as lowres } from 'src/app/utils/screen.utils';
 
 @Component({
   selector: 'app-modules',
@@ -11,36 +11,25 @@ import { ModuleService } from 'src/app/core/services/module.service';
 })
 export class ModulesPage {
 
-  _modules: ModuleModel[] = [];
+  _modules: ModuleModel;
   _grades: any;
+  isLowResolution = lowres;
 
   constructor(
     private moduleSvc: ModuleService,
     private modal:ModalController,
     private alert:AlertController,
-    private translate:TranslateService,
-    private api:HttpClientProvider,
-    private gradeSvc: GradeService
   ) { }
-
-  // ionViewWillEnter() {
-  //   this.getModules();
-  //   this.getGrades();
-  // }
 
   getModules(){
     return this.moduleSvc.modules$;
   }
 
-  getGrades() {
-    return this.gradeSvc.grades$;
+  onEditModule(module){
+    this.presentModuleForm(module);
   }
 
-  getFilteredByGrade(grade:string|null){
-    return this._modules.filter(s=>s.grade == grade);
-  }
-
-  async presentModuleForm(module: ModuleModel){
+  async presentModuleForm(module){
     const modal = await this.modal.create({
       component:ModuleFormComponent,
       componentProps:{
@@ -64,11 +53,7 @@ export class ModulesPage {
     });
   }
 
-  onEditModule(module: ModuleModel){
-    this.presentModuleForm(module);
-  }
-
-  async onDeleteModule(module: ModuleModel){
+  async onDeleteModule(module){
     const alert = await this.alert.create({
       header: 'Atención',
       message: '¿Está seguro de que desear borrar el módulo?',

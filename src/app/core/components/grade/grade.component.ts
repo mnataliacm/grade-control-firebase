@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GradeModel } from '../../models';
-import { isLowResolution as lowres} from 'src/app/utils/screen.utils';
+import { isLowResolution as lowres } from 'src/app/utils/screen.utils';
 import { IonItemSliding } from '@ionic/angular';
 import { GradeService } from '../../services';
 
@@ -14,19 +14,16 @@ export class GradeComponent {
   @Output() onEdit = new EventEmitter;
   @Output() onDelete = new EventEmitter;
   @Input() grade: GradeModel;
-  isLowResolution:()=>boolean = lowres;
-  constructor(
-    private gradeSvc:GradeService,
-  ) {
-      
-   }
+  isLowResolution: () => boolean = lowres;
 
-  onEditClick(slide:IonItemSliding){
+  constructor(private gradeSvc: GradeService) { }
+
+  onEditClick(slide: IonItemSliding) {
     slide.close();
     this.onEdit.emit(this.grade);
   }
 
-  onDeleteClick(slide:IonItemSliding){
+  onDeleteClick(slide: IonItemSliding) {
     slide.close();
     this.onDelete.emit(this.grade);
   }

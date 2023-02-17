@@ -5,5 +5,5 @@ export interface StudentModel {
   email: string;
   picture?: string;  
   pictureFile?:null;
-  grade?: string;  
+  grade?:string;  
 }

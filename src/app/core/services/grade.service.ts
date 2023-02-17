@@ -26,9 +26,8 @@ export class GradeService {
 
   private mapGrade(doc: DocumentData) {
     return {
-      docId: doc['id'],
-      name: doc['data']().name,
-      acronym: doc['data']().acronym,
+      docId: doc.id,
+      name: doc.data().name
     };
   }
 
@@ -42,8 +41,7 @@ export class GradeService {
         var grade = (await this.firebase.getDocument('grades', id));
         resolve({
           docId: grade.id,
-          name: grade.data['name'],
-          acronym: grade.data['acronym']
+          name: grade.data.name
         });
       } catch (error) {
         reject(error);
@@ -53,7 +51,7 @@ export class GradeService {
 
   async createGrade(grade: GradeModel) {
     try {
-      await this.firebase.createDocument('grades', grade);  
+      await this.firebase.createDocumentWithId('grades', grade, grade.docId);  
     } catch (error) {
       console.log(error);
     }
@@ -62,8 +60,7 @@ export class GradeService {
   async updateGrade(grade: GradeModel) {
     var _grade = {
       docId: grade.docId,
-      name: grade.name,
-      acronym: grade.acronym
+      name: grade.name
     };
     try {
       await this.firebase.updateDocument('grades', _grade.docId, _grade);  

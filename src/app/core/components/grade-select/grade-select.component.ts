@@ -1,32 +1,35 @@
-import { Component, forwardRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IonAccordionGroup } from '@ionic/angular';
+import { ClassroomFormComponent } from '..';
 import { GradeModel } from '../../models';
 import { GradeService } from '../../services';
+import { isLowResolution as lowres } from 'src/app/utils/screen.utils';
 
-export const GRADE_PROFILE_VALUE_ACCESSOR: any = {
+export const CLASSROOM_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => GradeSelectComponent),
-  multi: false
-};
+  useExisting: forwardRef(() => ClassroomFormComponent),
+  multi: true
+}
 
 @Component({
   selector: 'app-grade-select',
   templateUrl: './grade-select.component.html',
   styleUrls: ['./grade-select.component.scss'],
-  providers:[GRADE_PROFILE_VALUE_ACCESSOR]
+  providers: [CLASSROOM_VALUE_ACCESSOR]
 })
 export class GradeSelectComponent implements ControlValueAccessor {
 
-  selectGrade: GradeModel | any;
+  selectedGrade: GradeModel | any;
   propagateChange = (_: any) => { }
-  isDisabled:boolean = false;
+  isDisabled: boolean = false;
+  isLowResolution = lowres;
 
-  constructor(private gradeSvc:GradeService) { }
+  constructor(private gradeSvc: GradeService) { }
 
   async writeValue(obj: any) {
     try {
-      this.selectGrade = await this.gradeSvc.getGrades();
+      this.selectedGrade = await this.gradeSvc.getGradeById(obj);
     } catch (error) {
       console.log("No se ha podido recupera los datos: " + error);
     }
@@ -43,14 +46,14 @@ export class GradeSelectComponent implements ControlValueAccessor {
     this.isDisabled = isDisabled;
   }
 
-  getGrades(){
+  getGrades() {
     return this.gradeSvc.grades$;
-  } 
+  }
 
-  onGradeClicked(gradeId: number, accordion:IonAccordionGroup){
-    this.selectGrade = gradeId;
-    accordion.value='';
-    this.propagateChange(this.selectGrade);
+  onGradeClicked(grade: GradeModel, accordion: IonAccordionGroup) {
+    this.selectedGrade = grade;
+    accordion.value = '';
+    this.propagateChange(this.selectedGrade.docId);
   }
 
 }

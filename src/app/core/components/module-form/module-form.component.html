@@ -10,20 +10,31 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
     <ion-item>
       <ion-label position="floating">
+        Siglas
+      </ion-label>
+      <ion-input type="text" placeholder="Introduce las siglas" formControlName="docId"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
         Nombre
       </ion-label>
       <ion-input type="text" placeholder="Introduce el nombre" formControlName="name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">
-        Siglas
+        Profesor
       </ion-label>
-      <ion-input type="text" placeholder="Introduce las siglas" formControlName="acronym"></ion-input>
+      <ion-input type="text" placeholder="Nombre del profesor" formControlName="teacher"></ion-input>
     </ion-item>
-    <ion-item>
+    <!-- <ion-item>
       <ion-list>
-        <ion-label>{{ 'detail.grade' | translate }}</ion-label>
-        <ion-item>
+        <ion-label>{{ 'detail.grade' | translate }}</ion-label> -->
+    <!-- <app-grade-select *ngFor="let grade in _grades" [grade]="grade" > </app-grade-select> -->
+
+    <!-- <app-grade-select formControlName="grade"></app-grade-select> -->
+    <!-- (getGrades() | async | orderBy:'acronym') -->
+
+    <!-- <ion-item>
           <ion-select placeholder="{{ 'assign.grade' | translate}}" formControlName="grade">
             <ion-select-option value="1">1º SMR</ion-select-option>
             <ion-select-option value="2">2º SMR</ion-select-option>
@@ -37,9 +48,9 @@
             <ion-select-option value="10">DVRV</ion-select-option>
             <ion-select-option value="11">IABD</ion-select-option>
           </ion-select>         
-        </ion-item>   
-      </ion-list>
-    </ion-item>
+        </ion-item>    -->
+    <!-- </ion-list>
+    </ion-item> -->
     <!-- <ion-item>
       <app-grade-select formControlName="grade"></app-grade-select>
     </ion-item> -->

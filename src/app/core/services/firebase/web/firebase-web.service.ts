@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { FirebaseDocument, FirebaseService, FIRESTORAGE_PREFIX_PATH, FirestoreImages, FIRESTORE_IMAGES_COLLECTION } from "../firebase-service";
+import { FirebaseDocument, FirebaseService, FIRESTORAGE_PREFIX_PATH } from "../firebase-service";
 import { initializeApp, deleteApp, getApp } from "firebase/app";
 import { setUserId, setUserProperties } from "firebase/analytics";
 import { getFirestore, addDoc, collection, updateDoc, doc, onSnapshot, getDoc, setDoc, query, where, getDocs, Unsubscribe,orderBy, DocumentData, deleteDoc, OrderByDirection} from "firebase/firestore";
@@ -108,7 +108,7 @@ export class FirebaseWebService extends FirebaseService implements OnDestroy{
   public createDocumentWithId(collectionName:string, data:any, docId:string):Promise<void>{
     return new Promise((resolve,reject)=>{
       const collectionRef = collection(this.db, collectionName);
-      const docRef = doc(this.db, 'usuarios', docId);
+      const docRef = doc(this.db, collectionName, docId);
       setDoc(docRef, data).then(docRef => resolve()
       ).catch(err =>  reject(err));
     });

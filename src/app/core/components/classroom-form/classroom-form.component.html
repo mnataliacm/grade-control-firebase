@@ -1,3 +1,52 @@
-<p>
-  classroom-form works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Datos de la clase</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss(null)">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">
+        Aula
+      </ion-label>
+      <ion-input type="text" placeholder="Nombre del aula" formControlName="docId"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Level
+      </ion-label>
+      <ng-container *ngIf="level!=null">
+        <ion-label>{{classroom.level}}</ion-label>
+      </ng-container>
+      <ion-input type="text" placeholder="Nivel del curso" formControlName="level"></ion-input>
+      <ion-list>
+        <ion-item *ngIf="!level">
+          <ion-select interface="popover" (ionChange)="onChange($event)" placeholder="Selecciona nivel"
+            formControlName="level">
+            <ion-select-option value="1º">1º</ion-select-option>
+            <ion-select-option value="2º">2º</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Curso
+      </ion-label>
+      <ion-input type="text" placeholder="{{ 'assign.grade' | translate}}" formControlName="grade"></ion-input>
+      <app-grade-select></app-grade-select>
+    </ion-item>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button [disabled]="!form.valid" (click)="onSubmit()">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

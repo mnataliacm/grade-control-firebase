@@ -14,7 +14,7 @@ export interface FirestoreImages{
 export const FIRESTORE_GRADES_COLLECTION = 'controlnotas-ncm-grades';
 export const FIRESTORE_MODULES_COLLECTION = 'controlnotas-ncm-modules';
 export const FIRESTORE_STUDENTS_COLLECTION = 'controlnotas-ncm-students';
-export const FIRESTORE_CLASSROOMS_COLLECTION = 'controlnotas-ncm-classroom';
+export const FIRESTORE_CLASSROOMS_COLLECTION = 'controlnotas-ncm-classrooms';
 export const FIRESTORE_TASKS_COLLECTION = 'controlnotas-ncm-tasks';
 export const FIRESTORE_ASSIGNMENTS_COLLECTION = 'controlnotas-ncm-assignments';
 export const FIRESTORE_IMAGES_COLLECTION = 'controlnotas-ncm-images';

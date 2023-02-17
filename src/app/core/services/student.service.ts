@@ -44,10 +44,11 @@ export class StudentService {
         var student = (await this.firebase.getDocument('students', id));
         resolve({
           docId:student.id,
-          name:student.data['name'],
-          surname:student.data['surname'],
-          email:student.data['email'],
-          picture:student.data['picture'], 
+          name:student.data.name,
+          surname:student.data.surname,
+          email:student.data.email,
+          grade:student.data.grade,
+          picture:student.data.picture,           
         });  
       } catch (error) {
         reject(error);
@@ -89,6 +90,7 @@ export class StudentService {
       name:student.name,
       surname:student.surname,
       email:student.email,
+      grade:student.grade,
       picture:student.picture
     };
     if(student['pictureFile']){

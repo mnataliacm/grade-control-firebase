@@ -8,16 +8,17 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  
-<ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
-  <ion-fab-button value="newTasks" (click)="onNewItem()">
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-
-<ion-list>
-  <app-classroom *ngFor="let classroom of (getClassrooms() | async)" ></app-classroom>
-</ion-list>
+  <!-- <ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
+    <ion-fab-button value="newClassroom" (click)="onNewItem()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+  <ion-grid [fixed]="true">
+    <ion-row>
+      <ion-col sizeXs="10" sizeXl="3" *ngFor="let classroom of (getClassrooms() | async)">
+        <app-classroom [classroom]="classroom" (onEdit)="onEditClassroom($event)"
+          (onDelete)="onDeleteClassroom($event)"></app-classroom>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
-
-<!-- [classroom]="classroom" (onEdit)="onEditClassroom($event)" (onDelete)="onDeleteClassroom($event)" -->

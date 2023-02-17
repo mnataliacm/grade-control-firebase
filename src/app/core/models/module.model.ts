@@ -1,7 +1,7 @@
 export interface ModuleModel {
-  docId?: string;
+  docId: string;
   name: string;
-  acronym: string;
-  gradeId?: number;
-  grade?: string;
+  teacher: string;
+  level?: string;
+  grade?: [];
 }

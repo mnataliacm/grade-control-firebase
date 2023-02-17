@@ -1,24 +1,44 @@
-<!-- 
-<ion-select placeholder="{{ 'assign.grade' | translate}}" formControlName="grade" *ngFor="let grade of (getGrades() | async)">
-  <ion-select-option value= {{ grade.id }}>{{ grade.acronym }}</ion-select-option>
+<ion-accordion-group [multiple]="true" #accordion>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ng-container *ngIf="selectedGrade!=null">
+        <ion-label>{{selectedGrade?.acronym}}</ion-label>
+      </ng-container>
+      <ion-label *ngIf="!selectedGrade">{{ 'detail.select' | translate }}</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-list>
+        <ion-item *ngFor="let grade of (getGrades() | async)" button (click)="onGradeClicked(grade, accordion)">
+          <ion-label *ngIf="isLowResolution()">{{grade.docId}}</ion-label>
+          <ion-item *ngIf="!isLowResolution()">{{grade.name}}</ion-item>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-accordion>
+</ion-accordion-group>
 
-  </ion-select> -->
 
+
+
+<!-- <ion-select placeholder="{{ 'assign.grade' | translate}}" formControlName="grade" *ngFor="let grade of (getGrades() | async)">
+  <ion-select-option value= {{ grade.id }}>{{ grade.docId }}</ion-select-option>
+</ion-select>  -->
 
 <!-- <ion-accordion-group #accordion>
   <ion-accordion value="first" *ngFor="let grade of (getGrades() | async)">
     <ion-item slot="header" color="light" > 
-    <ng-container *ngIf="selectGrade"  >
+    <ng-container *ngIf="selectedGrade"  >
       <ion-label>{{grade.acronym}}</ion-label>
     </ng-container>
     <ng-container>
       
     </ng-container>
-    <ion-label *ngIf="!selectGrade">{{ 'assign.grade' | translate }}</ion-label>
+    <ion-label *ngIf="!selectedGrade">{{ 'assign.grade' | translate }}</ion-label>
     </ion-item>
+
     <div class="ion-padding" slot="content">
       <ion-list>
-        <ion-item button (click)="onGradeClicked(grade.id, accordion)">
+        <ion-item button (click)="onGradeClicked(grade.docId, accordion)">
           <ion-label>{{ grade.acronym }}</ion-label>
         </ion-item>
       </ion-list>
@@ -26,3 +46,43 @@
   </ion-accordion>
 </ion-accordion-group> -->
 
+
+
+
+
+<!-- <ion-list *ngFor="let grade of (getGrades() | async | orderBy:'acronym')">
+  <ion-item>
+    {{ grade.acronym }}
+  </ion-item>
+</ion-list> -->
+
+<!-- value= {{ grade.docId }} -->
+<!-- <ion-list>
+  <ion-item>
+    <ion-label>{{ 'assign.grade' | translate}}</ion-label>
+<ion-select formControlName="grade" placeholder="{{ 'assign.grade' | translate}}">
+  <ion-select-option *ngFor="let grade of (getGrades() | async | orderBy:'acronym')" [value]="grade.docId" > 
+    {{ grade.docId }} 
+  </ion-select-option>
+</ion-select>
+</ion-item>
+</ion-list> -->
+
+<!-- 
+<ion-list>
+  <ion-item>
+    <ion-select placeholder="{{ 'assign.grade' | translate}}" formControlName="grade">
+      <ion-select-option value="1º SMR">1º SMR</ion-select-option>
+      <ion-select-option value="2º SMR">2º SMR</ion-select-option>
+      <ion-select-option value="1º DAM">1º DAM</ion-select-option>
+      <ion-select-option value="2º DAM">2º DAM</ion-select-option>
+      <ion-select-option value="1º DAW">1º DAW</ion-select-option>
+      <ion-select-option value="2º DAW">2º DAW</ion-select-option>
+      <ion-select-option value="1º ASIR">1º ASIR</ion-select-option>
+      <ion-select-option value="2º ASIR">2º ASIR</ion-select-option> -->
+<!-- <ion-select-option value="9">CIBER</ion-select-option>
+      <ion-select-option value="10">DVRV</ion-select-option>
+      <ion-select-option value="11">IABD</ion-select-option> -->
+<!-- </ion-select>
+  </ion-item>
+</ion-list> -->

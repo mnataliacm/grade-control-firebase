@@ -1,6 +1,4 @@
 export interface GradeModel {
-  docId?: string;
+  docId: string;
   name: string;
-  acronym: string;
-  moduleId?: number;
 }

@@ -25,10 +25,11 @@ export class ModuleService {
 
   private mapModule(doc:DocumentData){
     return {
-      docId:doc['id'],
-      name:doc['data']().name,
-      acronym:doc['data']().acronym,
-      grade:doc['data']().grade
+      docId:doc.id,
+      name:doc.data().name,
+      teacher:doc.data().teacher,
+      level:doc.data().level,
+      grade:doc.data().grade
     };
   }
 
@@ -43,8 +44,9 @@ export class ModuleService {
         resolve({
           docId: module.id,
           name: module.data['name'],
-          acronym: module.data['acronym'],
-          grade: module.data['grade']
+          teacher: module.data['teacher'],
+          level: module.data['level'],
+          grade: module.data['grade'],
         });
       } catch (error) {
         reject(error);
@@ -54,7 +56,7 @@ export class ModuleService {
 
  async createModule(module:ModuleModel){
   try {
-    await this.firebase.createDocument('modules', module);  
+    await this.firebase.createDocumentWithId('modules', module, module.docId);  
   } catch (error) {
     console.log(error);
   }
@@ -64,8 +66,9 @@ export class ModuleService {
     var _module = {
       docId: module.docId,
       name: module.name,
-      acronym: module.acronym,
-      grade: module.grade
+      teacher: module.teacher,
+      level: module.level,
+      grade: module.grade,
     };
     try {
       await this.firebase.updateDocument('modules', _module.docId, _module);  

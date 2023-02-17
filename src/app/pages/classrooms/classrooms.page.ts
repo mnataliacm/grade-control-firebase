@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { ClassroomFormComponent, ClassroomModel, ClassroomService, TaskModel } from 'src/app/core';
-import { isLowResolution as lowres } from 'src/app/utils/screen.utils';
+import { ClassroomFormComponent, ClassroomService } from 'src/app/core';
 
 @Component({
   selector: 'app-classrooms',
@@ -10,24 +9,21 @@ import { isLowResolution as lowres } from 'src/app/utils/screen.utils';
 })
 export class ClassroomsPage {
 
-  _classroom: any;
-  isLowResolution = lowres;
-
   constructor(
-    private classroomkSvc: ClassroomService,
+    private classroomSvc: ClassroomService,
     private alert: AlertController,
     private modal: ModalController,
   ) {}
 
   getClassrooms() {
-    return this.classroomkSvc.classroom$;
+    return this.classroomSvc._classroom$;
   }
 
-  onEditClassroom(classroom: any){
+  onEditClassroom(classroom){
     this.presentClassroomForm(classroom);
   }
 
-  async presentClassroomForm(classroom:TaskModel){
+  async presentClassroomForm(classroom){
     const modal = await this.modal.create({
       component:ClassroomFormComponent,
       componentProps:{
@@ -40,10 +36,10 @@ export class ClassroomsPage {
       if(result && result.data){
         switch(result.data.mode){
           case 'New':
-            this.classroomkSvc.createClassroom(result.data.classroom);
+            this.classroomSvc.createClassroom(result.data.classroom);
             break;
           case 'Edit':
-            this.classroomkSvc.updateClassroom(result.data.classroom);
+            this.classroomSvc.updateClassroom(result.data.classroom);
             break;
           default:
         }
@@ -51,7 +47,11 @@ export class ClassroomsPage {
     });
   }
 
-  async onDeleteAlert(classroom:ClassroomModel){
+  async onDeleteClassroom(classroom){
+    this.onDeleteAlert(classroom);
+  }
+
+  async onDeleteAlert(classroom){
     const alert = await this.alert.create({
       header: 'Atención',
       message: '¿Está seguro de que desear borrar la clase?',
@@ -67,7 +67,7 @@ export class ClassroomsPage {
           text: 'Borrar',
           role: 'confirm',
           handler: () => {
-            this.classroomkSvc.deleteClassroom(classroom);
+            this.classroomSvc.deleteClassroom(classroom);
           },
         },
       ],
@@ -76,27 +76,23 @@ export class ClassroomsPage {
     const { role } = await alert.onDidDismiss();
   }
 
-  async onDeleteClassroom(classroom:ClassroomModel){
-    this.onDeleteAlert(classroom);
-  }
+  // onNewItem(){
+  //   this.presentForm(ClassroomFormComponent, (data)=>{
+  //     this.classroomSvc.createClassroom(data.classroom);
+  //   });
+  // }
 
-  async presentForm(_class: typeof ClassroomFormComponent, onDismiss:(arg0: any)=>void){
-    const modal = await this.modal.create({
-      component:_class,
-      cssClass:"modal-full-right-side"
-    });
-    modal.present();
-    modal.onDidDismiss().then(result=>{
-      if(result && result.data){
-        onDismiss(result.data);
-      }
-    });
-  }
-
-  onNewItem(){
-    this.presentForm(ClassroomFormComponent, (data)=>{
-      this.classroomkSvc.createClassroom(data.classroom);
-    });
-  }
+  // async presentForm(_class, onDismiss:(any)=>void){
+  //   const modal = await this.modal.create({
+  //     component:_class,
+  //     cssClass:"modal-full-right-side"
+  //   });
+  //   modal.present();
+  //   modal.onDidDismiss().then(result=>{
+  //     if(result && result.data){
+  //       onDismiss(result.data);
+  //     }
+  //   });
+  // }
 
 }

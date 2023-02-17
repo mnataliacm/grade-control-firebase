@@ -18,7 +18,6 @@ export class TaskFormComponent {
       this.form.controls['name'].setValue(task.name);
       this.form.controls['type'].setValue(task.type);
       this.form.controls['info'].setValue(task.info);
-      this.form.controls['level'].setValue(task.level);
       this.form.controls['grade'].setValue(task.grade);
       this.form.controls['module'].setValue(task.module);
       this.form.controls['date'].setValue(task.date);
@@ -35,7 +34,6 @@ export class TaskFormComponent {
       name:['', [Validators.required]],
       type:[''],
       info:[''],
-      level:[''],
       grade:[''],
       module:[''],
       date:[new Date().toISOString()]
