@@ -30,7 +30,6 @@ export class StudentFormComponent {
       this.form.controls.picture.setValue(student.picture);
       if (student.picture)
         this.currentImage.next(student.picture);
-      this.form.controls.pictureFile.setValue(null);
       this.mode = "Edit";
     }
   }

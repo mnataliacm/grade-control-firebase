@@ -45,8 +45,8 @@ export class StudentComponent {
     this.popover.dismiss(null, 'cancel');
   }
 
-  toProfile() {
-    this.profile.emit(this.student);
-  }
+  // toProfile() {
+  //   this.profile.emit(this.student);
+  // }
 
 }

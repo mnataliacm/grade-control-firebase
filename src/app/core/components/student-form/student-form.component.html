@@ -61,7 +61,7 @@
       <ion-label> {{ 'detail.grade' | translate }} </ion-label>
       <ion-list>
         <ion-item>
-          <ion-select placeholder="{{ 'assign.grade' | translate}}" formControlName="grade">
+          <ion-select interface="popover" placeholder="{{ 'assign.grade' | translate}}" formControlName="grade">
             <ion-select-option value="SMR">SMR</ion-select-option>
             <ion-select-option value="DAM">DAM</ion-select-option>
             <ion-select-option value="DAW">DAW</ion-select-option>
@@ -72,7 +72,6 @@
           </ion-select>
         </ion-item>
       </ion-list>
-
     </ion-item>
     <ion-button [disabled]="!form.valid" (click)="onSubmit()">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
     <ion-button color="danger" (click)="onDismiss(null)">
