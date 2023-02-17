@@ -1,6 +1,3 @@
-ion-fab {
-  margin: 10px;
-}
 
 ion-card{
   display: flex;
@@ -8,4 +5,10 @@ ion-card{
   width: 100% !important;
   height: 100% !important;
   margin: 0 !important;
+}
+
+/* iOS places the subtitle above the title */
+ion-card-header.ios {
+  display: flex;
+  flex-flow: column-reverse;
 }
