@@ -29,6 +29,7 @@ export class ClassroomService {
       docId:doc.id,
       level:doc.data().level,
       grade:doc.data().grade,
+      tutor:doc.data().tutor,
       // modules:doc.data().modules,
       // students:doc.data().students,
       // tasks:doc.data().tasks
@@ -47,6 +48,7 @@ export class ClassroomService {
           docId: classroom.id,
           level: classroom.data.level,
           grade: classroom.data.grade,
+          tutor: classroom.data.tutor,
           // modules: classroom.data.modules,
           // students: classroom.data.students,
           // tasks: classroom.data.tasks
@@ -70,6 +72,7 @@ export class ClassroomService {
       docId: classroom.docId,
       level: classroom.level,
       grade: classroom.grade,
+      tutor: classroom.tutor,
       // modules: classroom.modules,
       // students: classroom.students,
       // tasks: classroom.tasks

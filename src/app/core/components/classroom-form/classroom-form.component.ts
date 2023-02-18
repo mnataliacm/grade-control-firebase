@@ -21,6 +21,7 @@ export class ClassroomFormComponent {
       this.form.controls.docId.setValue(classroom.docId);
       this.form.controls.level.setValue(classroom.level);
       this.form.controls.grade.setValue(classroom.grade);
+      this.form.controls.tutor.setValue(classroom.tutor);
       this.mode = "Edit";
     }
   }
@@ -32,7 +33,8 @@ export class ClassroomFormComponent {
     this.form = this.fb.group({
       docId:[''],
       level:[''],
-      grade:['']
+      grade:[''],
+      tutor:[''],
     });
   }
 
