@@ -68,4 +68,4 @@ testem.log
 Thumbs.db
 
 # Carpeta
-/firebase
+app/core/services/firebase/
