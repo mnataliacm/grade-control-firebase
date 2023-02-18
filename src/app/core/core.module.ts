@@ -9,8 +9,7 @@ import es from '@angular/common/locales/es';
 import en from '@angular/common/locales/en';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { Drivers } from '@ionic/storage';
-import { DateTimeSelectableComponent } from './components/date-time-selectable/date-time-selectable.component';
-import { AssignScheduleComponent, ClassroomComponent, ClassroomFormComponent, GradeComponent, GradeFormComponent, GradeSelectComponent, ModuleComponent, ModuleFormComponent, ProfileComponent, StudentComponent, StudentFormComponent, TaskComponent, TaskFormComponent } from './components';
+import { ClassroomComponent, ClassroomFormComponent, GradeComponent, GradeFormComponent, GradeSelectComponent, ModuleComponent, ModuleFormComponent, ProfileComponent, StudentComponent, StudentFormComponent, TaskComponent, TaskFormComponent } from './components';
 import { OrderByPipe } from './pipes/orderByPipe';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import { File } from '@awesome-cordova-plugins/file/ngx';
@@ -21,12 +20,10 @@ registerLocaleData(es);
 @NgModule({
   declarations: 
   [
-    DateTimeSelectableComponent,
     ProfileComponent,
     GradeComponent,
     GradeFormComponent,
     GradeSelectComponent,
-    AssignScheduleComponent,
     StudentComponent,
     StudentFormComponent,
     ModuleComponent,
@@ -65,12 +62,10 @@ registerLocaleData(es);
     ReactiveFormsModule,
     HttpClientModule,
     TranslateModule,    
-    DateTimeSelectableComponent,
     ProfileComponent,
     GradeComponent,
     GradeFormComponent,
     GradeSelectComponent,
-    AssignScheduleComponent,
     StudentComponent,
     StudentFormComponent,
     ModuleComponent,
