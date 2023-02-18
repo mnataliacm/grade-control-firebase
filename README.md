@@ -1,10 +1,12 @@
 # grade-control-firebase
 Versión de [GradeControl](https://github.com/mnataliacm/grade-control.git) usando firebase.
 
-Añado Login y creación de nuevos usuarios. Deshabilito Tareas en el menú ya que está pendiente de implementar.
+* Añado Login y creación de nuevos usuarios. Deshabilito Tareas en el menú ya que está pendiente de implementar.
 
-He instalado los siguientes complementos:
-angular v14, rxjs, moment, moment-timezone, ionicons, @ngx-translate/core @ngx-translate/http-loader, cordova-plugin-advanced-http, @awesome-cordova-plugins/core /http /file, cordova-sqlite-storage, @ionic/storage-angular, @ionic/storage-angular plugin, firebase, firebase-tools, 
+* He instalado los siguientes complementos:
+    - angular v14, rxjs, moment, moment-timezone, ionicons, @ngx-translate/core @ngx-translate/http-loader, 
+    cordova-plugin-advanced-http, @awesome-cordova-plugins/core /http /file, cordova-sqlite-storage, 
+    @ionic/storage-angular, @ionic/storage-angular plugin, firebase, firebase-tools, 
 
 ## Vista Web
 <img src="https://user-images.githubusercontent.com/74043250/219874520-e58a6eb2-33f0-435b-a051-4a393867221a.png" width="400" height="200"> <img src="https://user-images.githubusercontent.com/74043250/219874539-9a3e88b2-03a5-4c33-8f12-d05c69ffa936.png" width="400" height="200">
