@@ -4,13 +4,10 @@ Añado Login y creación de nuevos usuarios.
 
 
 ## Vista Web
-<img src="https://user-images.githubusercontent.com/74043250/219874520-e58a6eb2-33f0-435b-a051-4a393867221a.png" width="500" height="300"> <img src="https://user-images.githubusercontent.com/74043250/219874539-9a3e88b2-03a5-4c33-8f12-d05c69ffa936.png" width="500" height="300">
-<img src="https://user-images.githubusercontent.com/74043250/219873295-3906e4ef-a430-4944-bb0a-3d423e7ec160.png" width="500" height="300">
-<img src="https://user-images.githubusercontent.com/74043250/219874726-fdcd834b-c1c1-472c-8d06-aeae7e8aa6f4.png" width="500" height="300">
-<img src="https://user-images.githubusercontent.com/74043250/219874688-f8ea6b7d-c405-44e8-8ac4-868672700183.png" width="500" height="300">
-<img src="https://user-images.githubusercontent.com/74043250/219874797-5a67eacc-52af-4e13-af39-a037ff9f1e41.png" width="500" height="300">
-<img src="https://user-images.githubusercontent.com/74043250/219874818-4e0135af-74b9-4c8f-aeb3-291ffb0a1750.png" width="500" height="300">
-<img src="https://user-images.githubusercontent.com/74043250/219874924-61b396c6-abe9-464b-a9b8-bcebde8c2205.png" width="500" height="300">
+<img src="https://user-images.githubusercontent.com/74043250/219874520-e58a6eb2-33f0-435b-a051-4a393867221a.png" width="400" height="200"> <img src="https://user-images.githubusercontent.com/74043250/219874539-9a3e88b2-03a5-4c33-8f12-d05c69ffa936.png" width="400" height="200">
+<img src="https://user-images.githubusercontent.com/74043250/219873295-3906e4ef-a430-4944-bb0a-3d423e7ec160.png" width="400" height="200"> <img src="https://user-images.githubusercontent.com/74043250/219874726-fdcd834b-c1c1-472c-8d06-aeae7e8aa6f4.png" width="400" height="200">
+<img src="https://user-images.githubusercontent.com/74043250/219874688-f8ea6b7d-c405-44e8-8ac4-868672700183.png" width="400" height="200"> <img src="https://user-images.githubusercontent.com/74043250/219874797-5a67eacc-52af-4e13-af39-a037ff9f1e41.png" width="400" height="200">
+<img src="https://user-images.githubusercontent.com/74043250/219874818-4e0135af-74b9-4c8f-aeb3-291ffb0a1750.png" width="400" height="200"> <img src="https://user-images.githubusercontent.com/74043250/219874924-61b396c6-abe9-464b-a9b8-bcebde8c2205.png" width="400" height="200">
 
 
 
