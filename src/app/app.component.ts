@@ -26,8 +26,15 @@ export class AppComponent implements AfterViewInit {
     this.translate. setDefaultLang('es');
   }
   ngAfterViewInit(): void {
-   
   }
+
+  spanish() {
+    this.translate.setDefaultLang('es');
+  }
+  english() {
+    this.translate.setDefaultLang('en');
+  }
+  
   onLanguage(){
     this.language = (this.language+1)%2;
     switch(this.language){

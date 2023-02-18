@@ -60,15 +60,23 @@
               <ion-label>
                 {{ 'home.info' | translate | uppercase}}
               </ion-label>
-            </ion-item>
+            </ion-item>         
           </ion-menu-toggle>
-
           <ion-menu-toggle auto-hide="false">
             <ion-item (click)="signOut()" button>
               <ion-icon slot="start" name="log-out-outline"></ion-icon>
               <ion-label>Cerrar sesión</ion-label>
             </ion-item>
           </ion-menu-toggle>
+          <ion-item>
+              <ion-label></ion-label>
+              <ion-thumbnail (click)="spanish()">
+                <img src="assets/images/spain_flag.png" alt="{{ 'home.spa' | translate }}">
+              </ion-thumbnail>
+              <ion-thumbnail (click)="english()">
+                <img src="assets/images/uk_flag.png" alt="{{ 'home.eng' | translate }}">
+              </ion-thumbnail>
+            </ion-item>
 
         </ion-list>
       </ion-content>
