@@ -10,12 +10,15 @@
       <ion-list>
         <ion-item *ngFor="let grade of (getGrades() | async)" button (click)="onGradeClicked(grade, accordion)">
           <ion-label *ngIf="isLowResolution()">{{grade.docId}}</ion-label>
-          <ion-item *ngIf="!isLowResolution()">{{grade.name}}</ion-item>
+          <ion-label *ngIf="!isLowResolution()">{{grade.name}}</ion-label>
         </ion-item>
       </ion-list>
     </div>
   </ion-accordion>
 </ion-accordion-group>
+
+
+
 
 
 

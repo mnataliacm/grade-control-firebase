@@ -4,27 +4,27 @@
     <ion-label>{{grade.docId}}</ion-label>
     <ion-button class="item-expanded" *ngIf="!isLowResolution()" slot="end" fill="clear" (click)="onEditClick(sliding)">
       <div class="vertical">
-        <ion-icon name="create"></ion-icon>
-        {{'Editar' | uppercase}}
+        <ion-icon name="create" color="success"></ion-icon>
+        {{'button.edit' | translate | uppercase}}
       </div>
     </ion-button>
-    <ion-button class="item-expanded" *ngIf="!isLowResolution()" slot="end" fill="clear" color="danger"
+    <ion-button class="item-expanded" *ngIf="!isLowResolution()" slot="end" fill="clear"
       (click)="onDeleteClick(sliding)">
       <div class="vertical">
-        <ion-icon name="trash"></ion-icon>
-        {{'Borrar' | uppercase}}
+        <ion-icon name="trash" color="danger"></ion-icon>
+        {{'button.delete' | translate | uppercase}}
       </div>
     </ion-button>
   </ion-item>
 
   <ion-item-options>
     <ion-item-option (click)="onEditClick(sliding)">
-      <ion-icon slot="top" name="create"></ion-icon>
-      {{'Editar' | uppercase}}
+      <ion-icon slot="top" name="create" color="success"></ion-icon>
+      {{'button.edit' | translate | uppercase}}
     </ion-item-option>
-    <ion-item-option (click)="onDeleteClick(sliding)" color="danger">
-      <ion-icon slot="top" name="trash"></ion-icon>
-      {{'Borrar' | uppercase}}
+    <ion-item-option (click)="onDeleteClick(sliding)">
+      <ion-icon slot="top" name="trash" color="danger"></ion-icon>
+      {{'button.delete' | translate | uppercase}}
     </ion-item-option>
   </ion-item-options>
 </ion-item-sliding>

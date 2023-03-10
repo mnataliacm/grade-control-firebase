@@ -30,7 +30,8 @@
     "info": "Información",
     "warning": "Advertencia",
     "date": "Fecha",
-    "select": "Seleccione uno"
+    "select": "Seleccione uno",
+    "teacher": "Profesor"
   },
   "people": {
     "name": "Introduce el nombre ...",

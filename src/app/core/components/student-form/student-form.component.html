@@ -73,7 +73,7 @@
         </ion-item>
       </ion-list>
     </ion-item>
-    <ion-button [disabled]="!form.valid" (click)="onSubmit()">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
+    <ion-button [disabled]="!form.valid" (click)="onSubmit()">{{mode=="Edit"?("button.edit" | translate):("button.new" | translate)}}</ion-button>
     <ion-button color="danger" (click)="onDismiss(null)">
       {{ 'button.cancel' | translate }}
     </ion-button>
