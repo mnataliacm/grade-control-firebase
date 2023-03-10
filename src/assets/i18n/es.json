@@ -18,6 +18,8 @@
   "detail": {
     "titleS": "Datos del alumn@",
     "titleT": "Datos de la tarea",
+    "titleG": "Datos del curso",
+    "titleM": "Datos del módulo",
     "titleA": "Asignar fechas",
     "name": "Nombre",
     "surname": "Apellidos",
@@ -26,6 +28,7 @@
     "grade": "Curso",
     "level": "Nivel",
     "module": "Modulo",
+    "acronym": "Siglas",
     "type": "Tarea",
     "info": "Información",
     "warning": "Advertencia",
@@ -100,6 +103,16 @@
       "password":"Contraseña",
       "confirm_password":"Repita contraseña",
       "send":"Enviar"
-  }
+  },
+  "alert":{
+    "header": "Atención",
+    "message": "¿Está seguro de que desea borrarlo?"
 
+  },
+  "change-picture":{
+    "title":"Cambiar imagen",
+    "library":"Desde la galería",
+    "camera":"Desde la cámara",
+    "file":"Desde tu equipo"
+  } 
 }

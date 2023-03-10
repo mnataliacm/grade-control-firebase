@@ -18,6 +18,8 @@
   "detail": {
     "titleS": "Studen data",
     "titleT": "Task data",
+    "titleG": "Grade data",
+    "titleM": "Module data",
     "titleA": "Data assignment",
     "name": "Name",
     "surname": "Surname",
@@ -26,6 +28,7 @@
     "grade": "Grade",
     "level": "Level",
     "module": "Module",
+    "acronym": "Acronym",
     "type": "Task",
     "info": "Information",
     "warning": "Warning",
@@ -98,5 +101,16 @@
       "password":"Password",
       "confirm_password":"Repeat password",
       "send":"Send"
-  }
+  },
+  "alert":{
+    "header": "Attention",
+    "message": "Are you sure you want to delete it?"
+
+  },
+  "change-picture":{
+    "title":"Change image",
+    "library":"From gallery",
+    "camera":"From camera",
+    "file":"From your computer"
+}
 }

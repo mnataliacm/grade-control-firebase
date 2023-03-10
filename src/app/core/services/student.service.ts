@@ -75,10 +75,10 @@ export class StudentService {
     }
   }
 
-  uploadImage(file: Blob): Promise<any> {
+  uploadImage(file: Blob, name: string): Promise<any> {
     return new Promise(async (resolve, reject) => {
       try {
-        const data = await this.firebase.imageUpload(file);
+        const data = await this.firebase.imageUpload(file, name);
         resolve(data);
       } catch (error) {
         resolve(error);
