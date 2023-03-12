@@ -16,6 +16,7 @@ Versión de [GradeControl](https://github.com/mnataliacm/grade-control.git) usan
     * Pte terminar de configurar los botones módulos y alumnos para que muestren modal con lista.
 *  Deshabilito Menú de Tareas ya que está pendiente de implementar.
 * Añado Login y creación de nuevos usuarios, mantiene sesión iniciada. 
+    * Video mostrando funcionamiento Login y Registro -> [Video](https://youtu.be/gt1H8ZAxd30)
 
 
 ## Vista Web
