@@ -1,8 +1,6 @@
 # grade-control-firebase
 Versión de [GradeControl](https://github.com/mnataliacm/grade-control.git) usando firebase.
 
-* Añado Login y creación de nuevos usuarios. Deshabilito Tareas en el menú ya que está pendiente de implementar.
-
 * Además de los usados en GradeControl (excepto FullCalendar) he instalado los siguientes complementos:
     - cordova-plugin-advanced-http, @awesome-cordova-plugins/core, @awesome-cordova-plugins/http, 
         @awesome-cordova-plugins/file, cordova-sqlite-storage, 
@@ -16,6 +14,8 @@ Versión de [GradeControl](https://github.com/mnataliacm/grade-control.git) usan
 * Card de los clases con CRUD, usa como docId las siglas del curso.
     * Contiene varios selectables que leen de BD.
     * Pte terminar de configurar los botones módulos y alumnos para que muestren modal con lista.
+*  Deshabilito Menú de Tareas ya que está pendiente de implementar.
+* Añado Login y creación de nuevos usuarios, mantiene sesión iniciada. 
 
 
 ## Vista Web
