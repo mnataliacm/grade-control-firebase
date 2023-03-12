@@ -22,12 +22,12 @@ export class ClassroomFormComponent {
       this.form.controls.level.setValue(classroom.level);
       this.form.controls.grade.setValue(classroom.grade);
       this.form.controls.tutor.setValue(classroom.tutor);
-      // this.form.controls.module1.setValue(classroom.module1);
-      // this.form.controls.module2.setValue(classroom.module2);
-      // this.form.controls.module3.setValue(classroom.module3);
-      // this.form.controls.module4.setValue(classroom.module4);
-      // this.form.controls.module5.setValue(classroom.module5);
-      // this.form.controls.module6.setValue(classroom.module6);
+      this.form.controls.module1.setValue(classroom.module1);
+      this.form.controls.module2.setValue(classroom.module2);
+      this.form.controls.module3.setValue(classroom.module3);
+      this.form.controls.module4.setValue(classroom.module4);
+      this.form.controls.module5.setValue(classroom.module5);
+      this.form.controls.module6.setValue(classroom.module6);
       this.mode = "Edit";
     }
   }
@@ -41,12 +41,12 @@ export class ClassroomFormComponent {
       level:[''],
       grade:[''],
       tutor:[''],
-      // module1:[''],
-      // module2:[''],
-      // module3:[''],
-      // module4:[''],
-      // module5:[''],
-      // module6:[''],
+      module1:[''],
+      module2:[''],
+      module3:[''],
+      module4:[''],
+      module5:[''],
+      module6:[''],
     });
   }
 

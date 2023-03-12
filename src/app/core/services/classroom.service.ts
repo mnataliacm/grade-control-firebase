@@ -73,7 +73,7 @@ export class ClassroomService {
 
  async createClassroom(classroom: ClassroomModel){
   try {
-    await this.firebase.createDocument('classrooms', classroom);  
+    await this.firebase.createDocumentWithId('classrooms', classroom, classroom.docId);  
   } catch (error) {
     console.log(error);
   }

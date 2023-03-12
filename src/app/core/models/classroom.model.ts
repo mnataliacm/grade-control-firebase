@@ -12,6 +12,6 @@ export interface ClassroomModel {
   module5?: string;
   module6?: string;
   //modules?: [{id: number, docId: string}];
-  students?: [];
-  tasks?: [];
+  // students?: [];
+  // tasks?: [];
 }

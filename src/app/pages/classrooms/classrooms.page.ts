@@ -76,23 +76,23 @@ export class ClassroomsPage {
     const { role } = await alert.onDidDismiss();
   }
 
-  // onNewItem(){
-  //   this.presentForm(ClassroomFormComponent, (data)=>{
-  //     this.classroomSvc.createClassroom(data.classroom);
-  //   });
-  // }
+  onNewItem(){
+    this.presentForm(ClassroomFormComponent, (data)=>{
+      this.classroomSvc.createClassroom(data.classroom);
+    });
+  }
 
-  // async presentForm(_class, onDismiss:(any)=>void){
-  //   const modal = await this.modal.create({
-  //     component:_class,
-  //     cssClass:"modal-full-right-side"
-  //   });
-  //   modal.present();
-  //   modal.onDidDismiss().then(result=>{
-  //     if(result && result.data){
-  //       onDismiss(result.data);
-  //     }
-  //   });
-  // }
+  async presentForm(_class, onDismiss:(any)=>void){
+    const modal = await this.modal.create({
+      component:_class,
+      cssClass:"modal-full-right-side"
+    });
+    modal.present();
+    modal.onDidDismiss().then(result=>{
+      if(result && result.data){
+        onDismiss(result.data);
+      }
+    });
+  }
 
 }

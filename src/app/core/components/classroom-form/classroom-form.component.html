@@ -25,10 +25,9 @@
       <ion-list>
         <ion-item color="light">
           <ion-select interface="popover" placeholder="Selecciona nivel" formControlName="level">
-            <ion-select-option value="1º">
-              <p>1º</p>
-            </ion-select-option>
+            <ion-select-option value="1º">1º</ion-select-option>
             <ion-select-option value="2º">2º</ion-select-option>
+            <ion-select-option value="Master">Master</ion-select-option>
           </ion-select>
         </ion-item>
       </ion-list>
@@ -42,14 +41,15 @@
       <ion-label>{{ 'detail.module' | translate }}s:</ion-label>
     </ion-item>
 
-    <!-- <ion-item>
+    <ion-item>
       <ion-label>{{ 'detail.module' | translate }} 1:</ion-label>
       <app-module-select formControlName="module1"></app-module-select>
     </ion-item>
-    <ion-item>
+     <ion-item>
       <ion-label>{{ 'detail.module' | translate }} 2:</ion-label>
       <app-module-select formControlName="module2"></app-module-select>
-    </ion-item><ion-item>
+    </ion-item>
+    <ion-item>
       <ion-label>{{ 'detail.module' | translate }} 3:</ion-label>
       <app-module-select formControlName="module3"></app-module-select>
     </ion-item>
@@ -64,8 +64,7 @@
     <ion-item>
       <ion-label>{{ 'detail.module' | translate }} 6:</ion-label>
       <app-module-select formControlName="module6"></app-module-select>
-    </ion-item> -->
-
+    </ion-item>
   </form>
 </ion-content>
 <ion-footer>
