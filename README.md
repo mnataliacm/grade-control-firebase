@@ -10,6 +10,14 @@ Versión de [GradeControl](https://github.com/mnataliacm/grade-control.git) usan
     - firebase, firebase-tools, 
 
 ### Funcionalidades
+* Lista de cursos con CRUD, usa como docId las siglas del curso.
+* Lista de módulos con CRUD, usa como docId las siglas del curso.
+* Card de los estudiantes con CRUD, pte arreglar selectables y perfil.
+* Card de los clases con CRUD, usa como docId las siglas del curso.
+    * Contiene varios selectables que leen de BD.
+    * Pte terminar de configurar los botones módulos y alumnos para que muestren modal con lista.
+
+
 ## Vista Web
 <img src="https://user-images.githubusercontent.com/74043250/219874520-e58a6eb2-33f0-435b-a051-4a393867221a.png" width="400" height="200"> <img src="https://user-images.githubusercontent.com/74043250/219874539-9a3e88b2-03a5-4c33-8f12-d05c69ffa936.png" width="400" height="200">
 <img src="https://user-images.githubusercontent.com/74043250/219873295-3906e4ef-a430-4944-bb0a-3d423e7ec160.png" width="400" height="200"> <img src="https://user-images.githubusercontent.com/74043250/219874726-fdcd834b-c1c1-472c-8d06-aeae7e8aa6f4.png" width="400" height="200">
