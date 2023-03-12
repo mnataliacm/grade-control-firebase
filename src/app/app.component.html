@@ -4,7 +4,7 @@
 
       <ion-header>
         <ion-toolbar>
-          <ion-title>MENU</ion-title>
+          <ion-title *ngIf="!(user.isLogged$ | async)">MENU</ion-title>
           <ion-label slot="end"><h2>{{ 'home.login' | translate}}, {{(user.user$ |async)?.username | uppercase}}</h2></ion-label>
         </ion-toolbar>
       </ion-header>

@@ -21,6 +21,7 @@
     "titleG": "Datos del curso",
     "titleM": "Datos del módulo",
     "titleA": "Asignar fechas",
+    "titleC": "Datos de la clase",
     "name": "Nombre",
     "surname": "Apellidos",
     "image": "Imagen",
@@ -29,11 +30,13 @@
     "level": "Nivel",
     "module": "Modulo",
     "acronym": "Siglas",
+    "classroom": "Clases",
     "type": "Tarea",
     "info": "Información",
     "warning": "Advertencia",
     "date": "Fecha",
     "select": "Seleccione uno",
+    "selectM": "Seleccione módulo",
     "teacher": "Profesor"
   },
   "people": {

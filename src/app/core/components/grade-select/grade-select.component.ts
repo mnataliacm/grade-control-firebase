@@ -1,14 +1,13 @@
 import { Component, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IonAccordionGroup } from '@ionic/angular';
-import { ClassroomFormComponent } from '..';
 import { GradeModel } from '../../models';
 import { GradeService } from '../../services';
 import { isLowResolution as lowres } from 'src/app/utils/screen.utils';
 
-export const CLASSROOM_VALUE_ACCESSOR: any = {
+export const GRADE_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => ClassroomFormComponent),
+  useExisting: forwardRef(() => GradeSelectComponent),
   multi: true
 }
 
@@ -16,11 +15,11 @@ export const CLASSROOM_VALUE_ACCESSOR: any = {
   selector: 'app-grade-select',
   templateUrl: './grade-select.component.html',
   styleUrls: ['./grade-select.component.scss'],
-  providers: [CLASSROOM_VALUE_ACCESSOR]
+  providers: [GRADE_VALUE_ACCESSOR]
 })
 export class GradeSelectComponent implements ControlValueAccessor {
 
-  selectedGrade: GradeModel | any;
+  selectedGrade: GradeModel = null;
   propagateChange = (_: any) => { }
   isDisabled: boolean = false;
   isLowResolution = lowres;
@@ -47,7 +46,7 @@ export class GradeSelectComponent implements ControlValueAccessor {
   }
 
   getGrades() {
-    return this.gradeSvc.grades$;
+    return this.gradeSvc.getGrades();
   }
 
   onGradeClicked(grade: GradeModel, accordion: IonAccordionGroup) {

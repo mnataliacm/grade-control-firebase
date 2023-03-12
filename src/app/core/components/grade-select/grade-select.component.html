@@ -2,15 +2,16 @@
   <ion-accordion value="first">
     <ion-item slot="header" color="light">
       <ng-container *ngIf="selectedGrade!=null">
-        <ion-label>{{selectedGrade?.acronym}}</ion-label>
+        <ion-label *ngIf="isLowResolution()">{{selectedGrade?.docId}}</ion-label>
+        <ion-label *ngIf="!isLowResolution()">{{selectedGrade?.docId}} - {{selectedGrade?.name}}</ion-label>
       </ng-container>
       <ion-label *ngIf="!selectedGrade">{{ 'detail.select' | translate }}</ion-label>
     </ion-item>
     <div class="ion-padding" slot="content">
       <ion-list>
-        <ion-item *ngFor="let grade of (getGrades() | async)" button (click)="onGradeClicked(grade, accordion)">
-          <ion-label *ngIf="isLowResolution()">{{grade.docId}}</ion-label>
-          <ion-label *ngIf="!isLowResolution()">{{grade.name}}</ion-label>
+        <ion-item *ngFor="let grade of getGrades()" button detail (click)="onGradeClicked(grade, accordion)">
+          <ion-label *ngIf="isLowResolution()">{{grade.docId}} </ion-label>
+          <ion-label *ngIf="!isLowResolution()">{{grade.docId}} - {{grade.name}}</ion-label>
         </ion-item>
       </ion-list>
     </div>

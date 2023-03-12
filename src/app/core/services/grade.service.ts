@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { DocumentData, orderBy } from 'firebase/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { GradeModel } from '../models';
-
 import { FirebaseService } from './firebase/firebase-service';
 
 @Injectable({

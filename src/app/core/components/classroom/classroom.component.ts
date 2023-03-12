@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { isLowResolution as lowres} from 'src/app/utils/screen.utils';
 import { ClassroomModel } from '../..';
 
@@ -7,6 +7,7 @@ import { ClassroomModel } from '../..';
   templateUrl: './classroom.component.html',
   styleUrls: ['./classroom.component.scss'],
 })
+
 export class ClassroomComponent {
 
   @Output() onEdit = new EventEmitter;
@@ -22,4 +23,8 @@ export class ClassroomComponent {
     this.onDelete.emit(this.classroom);
   }
    
+  onModulesClick() {
+
+  }
+
 }

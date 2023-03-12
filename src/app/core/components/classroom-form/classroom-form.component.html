@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Datos de la clase</ion-title>
+    <ion-title>{{ 'detail.titleC' | translate}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="onDismiss(null)">Cerrar</ion-button>
+      <ion-button (click)="onDismiss(null)">{{ 'button.close' | translate}}</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -10,34 +10,9 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
     <ion-item>
       <ion-label position="floating">
-        Aula
+        {{ 'detail.classroom' | translate }}
       </ion-label>
       <ion-input type="text" placeholder="Nombre del aula" formControlName="docId"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">
-        Level
-      </ion-label>
-      <ng-container *ngIf="level!=null">
-        <ion-label>{{classroom.level}}</ion-label>
-      </ng-container>
-      <ion-input type="text" placeholder="Nivel del curso" formControlName="level"></ion-input>
-      <ion-list>
-        <ion-item *ngIf="!level">
-          <ion-select interface="popover" placeholder="Selecciona nivel"
-            formControlName="level">
-            <ion-select-option value="1º">1º</ion-select-option>
-            <ion-select-option value="2º">2º</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">
-        Curso
-      </ion-label>
-      <ion-input type="text" placeholder="{{ 'assign.grade' | translate}}" formControlName="grade"></ion-input>
-      <app-grade-select></app-grade-select>
     </ion-item>
     <ion-item>
       <ion-label position="floating">
@@ -45,13 +20,60 @@
       </ion-label>
       <ion-input type="text" placeholder="{{ 'assign.grade' | translate}}" formControlName="tutor"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label>{{ 'detail.level' | translate }}:</ion-label>
+      <ion-list>
+        <ion-item color="light">
+          <ion-select interface="popover" placeholder="Selecciona nivel" formControlName="level">
+            <ion-select-option value="1º">
+              <p>1º</p>
+            </ion-select-option>
+            <ion-select-option value="2º">2º</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'detail.grade' | translate }}:</ion-label>
+      <app-grade-select formControlName="grade"></app-grade-select>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label>{{ 'detail.module' | translate }}s:</ion-label>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-label>{{ 'detail.module' | translate }} 1:</ion-label>
+      <app-module-select formControlName="module1"></app-module-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'detail.module' | translate }} 2:</ion-label>
+      <app-module-select formControlName="module2"></app-module-select>
+    </ion-item><ion-item>
+      <ion-label>{{ 'detail.module' | translate }} 3:</ion-label>
+      <app-module-select formControlName="module3"></app-module-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'detail.module' | translate }} 4:</ion-label>
+      <app-module-select formControlName="module4"></app-module-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'detail.module' | translate }} 5:</ion-label>
+      <app-module-select formControlName="module5"></app-module-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'detail.module' | translate }} 6:</ion-label>
+      <app-module-select formControlName="module6"></app-module-select>
+    </ion-item> -->
+
   </form>
 </ion-content>
 <ion-footer>
   <ion-grid>
     <ion-row>
       <ion-col class="ion-text-center">
-        <ion-button [disabled]="!form.valid" (click)="onSubmit()">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
+        <ion-button [disabled]="!form.valid" (click)="onSubmit()">{{mode=="Edit"?("button.edit" |
+          translate):("button.new" | translate)}}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

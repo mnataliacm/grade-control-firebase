@@ -27,9 +27,7 @@ export class ModuleService {
     return {
       docId:doc.id,
       name:doc.data().name,
-      teacher:doc.data().teacher,
-      level:doc.data().level,
-      grade:doc.data().grade
+      teacher:doc.data().teacher
     };
   }
 
@@ -43,10 +41,8 @@ export class ModuleService {
         var module = (await this.firebase.getDocument('modules', id));
         resolve({
           docId: module.id,
-          name: module.data['name'],
-          teacher: module.data['teacher'],
-          level: module.data['level'],
-          grade: module.data['grade'],
+          name: module.data.name,
+          teacher: module.data.teacher
         });
       } catch (error) {
         reject(error);
@@ -66,9 +62,7 @@ export class ModuleService {
     var _module = {
       docId: module.docId,
       name: module.name,
-      teacher: module.teacher,
-      level: module.level,
-      grade: module.grade,
+      teacher: module.teacher
     };
     try {
       await this.firebase.updateDocument('modules', _module.docId, _module);  

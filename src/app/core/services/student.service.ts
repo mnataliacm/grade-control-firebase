@@ -97,7 +97,7 @@ export class StudentService {
       picture: student.picture
     };
     if (student['pictureFile']) {
-      var response = await this.uploadImage(student['pictureFile']);
+      var response = await this.uploadImage(student['pictureFile'], student.docId);
       _student['picture'] = response.image;
     }
     try {
