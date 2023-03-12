@@ -1,21 +1,31 @@
-<ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button (click)="cancel()">Cancel</ion-button>
-        </ion-buttons>
-        <ion-title>{{ 'detail.titleC' | translate}}</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <ion-item>
-        <ion-label position="stacked">  </ion-label>
-        <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>
-      </ion-item>
-    </ion-content>
-  </ng-template>
-  </ion-modal>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="medium" (click)="cancel()">{{ 'button.close' | translate}}</ion-button>
+    </ion-buttons>
+    <ion-title>Lista de Módulos del Curso {{classroom.grade}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label>llll {{classroom.module1}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{classroom.module2}} kkkk</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{classroom.module3}} kjhhgg</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{classroom.module4}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{classroom.module5}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{classroom.module6}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

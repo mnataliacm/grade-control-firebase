@@ -21,7 +21,7 @@
     Tutor: {{ classroom.tutor}}
   </ion-card-content>
   <ion-item lines="none">
-    <ion-button id="open-modal" expand="block" >{{ 'detail.module' | translate}}s</ion-button>
+    <ion-button (click)="openModal()" expand="block" >{{ 'detail.module' | translate}}s</ion-button>
     <ion-button [disabled]="true">{{ 'home.student' | translate}}</ion-button>
   </ion-item>
 </ion-card>

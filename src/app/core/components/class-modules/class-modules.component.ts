@@ -1,6 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
+import { ClassroomModel } from '../../models';
+import { ClassroomService } from '../../services';
+import { isLowResolution as lowres } from 'src/app/utils/screen.utils';
 
 @Component({
   selector: 'app-class-modules',
@@ -10,23 +13,27 @@ import { OverlayEventDetail } from '@ionic/core/components';
 export class ClassModulesComponent {
 
   @ViewChild(IonModal) modal: IonModal;
+  @Input() classroom: ClassroomModel;
+  isModalOpen = false;
+  isLowResolution: () => boolean = lowres;
 
-  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
-  name: string;
+  constructor(private classroomSvc: ClassroomService) { }
+
+  getClassrooms() {
+    return this.classroomSvc.getClassrooms();
+  }
 
   cancel() {
     this.modal.dismiss(null, 'cancel');
   }
 
-  confirm() {
-    this.modal.dismiss(this.name, 'confirm');
-  }
+  // confirm() {
+  //   this.modal.dismiss(this.name, 'confirm');
+  // }
 
-  onWillDismiss(event: Event) {
-    const ev = event as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm') {
-      this.message = `Hello, ${ev.detail.data}!`;
-    }
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
 
 }

@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { isLowResolution as lowres} from 'src/app/utils/screen.utils';
-import { ClassroomModel } from '../..';
+import { ClassModulesComponent, ClassroomModel } from '../..';
 
 @Component({
   selector: 'app-classroom',
@@ -14,6 +15,7 @@ export class ClassroomComponent {
   @Output() onDelete = new EventEmitter;
   @Input() classroom: ClassroomModel;
   isLowResolution:()=>boolean = lowres;
+  isModalOpen = false;
 
   onEditClick(){
     this.onEdit.emit(this.classroom);
@@ -24,6 +26,18 @@ export class ClassroomComponent {
   }
    
   onModulesClick() {
+
+  }
+
+  constructor(private modalCtrl: ModalController) {}
+
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: ClassModulesComponent,
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
 
   }
 
