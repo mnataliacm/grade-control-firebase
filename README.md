@@ -8,6 +8,7 @@ Versión de [GradeControl](https://github.com/mnataliacm/grade-control.git) usan
     - firebase, firebase-tools, 
 
 ### Funcionalidades
+* Traduccion de textos y botones.
 * Lista de cursos con CRUD, usa como docId las siglas del curso.
 * Lista de módulos con CRUD, usa como docId las siglas del curso.
 * Card de los estudiantes con CRUD, pte arreglar selectables y perfil.
