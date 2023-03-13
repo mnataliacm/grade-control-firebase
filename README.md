@@ -1,7 +1,8 @@
 # grade-control-firebase
 Versión de [GradeControl](https://github.com/mnataliacm/grade-control.git) usando firebase.
 
-* Además de los usados en GradeControl (excepto FullCalendar) he instalado los siguientes complementos:
+* He instalado los siguientes complementos:
+    - rxjs, moment, moment-timezone, ionicons, @ngx-translate/core @ngx-translate/http-loader
     - cordova-plugin-advanced-http, @awesome-cordova-plugins/core, @awesome-cordova-plugins/http, 
         @awesome-cordova-plugins/file, cordova-sqlite-storage, 
     - @ionic/storage-angular, @ionic/storage-angular plugin, 
